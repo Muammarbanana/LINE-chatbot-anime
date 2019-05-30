@@ -74,7 +74,7 @@
                            $data = json_decode($flex_template,true);
                            //$data['header']['contents']['text'] = $text[1];
                            $newflex = json_encode($data);
-                           file_put_contents("anime_template2.json",$data);
+                           file_put_contents("anime_template2.json",$newflex);
                            $flex_template2 = file_get_contents("anime_template.json");
                            $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                             'replyToken' => $event['replyToken'],
