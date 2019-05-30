@@ -1,74 +1,56 @@
 {
-    "type": "bubble",
-    "header": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "Dicoding Academy",
-          "weight": "bold"
-        }
-      ]
-    },
-    "hero": {
-      "type": "image",
-      "url": "https://www.dicoding.com/images/small/academy/menjadi_android_developer_expert_logo_041217105708.png",
-      "size": "full",
-      "aspectRatio": "4:3",
-      "aspectMode": "cover"
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "Menjadi Android Developer Expert",
-          "size": "sm",
-          "color": "#c9302c",
-          "weight": "bold"
-        },
-        {
-          "type": "text",
-          "text": "oleh: Dicoding Indonesia",
-          "size": "sm",
-          "color": "#c9302c"
-        },
-        {
-          "type": "text",
-          "text": "Jadilah expert di dunia pemrograman Android. Materi disusun oleh Dicoding sebagai Google Authorized Training Partner.",
-          "size": "sm",
-          "wrap": true,
-          "margin": "lg"
-        }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "horizontal",
-      "spacing": "sm",
-      "contents": [
-        {
-          "type": "button",
-          "style": "secondary",
-          "action": {
-            "type": "postback",
-            "label": "Trial",
-            "displayText": "Trial",
-            "data": "Trial"
+    "type": "flex",
+    "altText": "Flex Message",
+    "contents": {
+      "type": "bubble",
+      "direction": "ltr",
+      "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Boku no Hero Academia 4th Season",
+            "size": "md",
+            "align": "center",
+            "weight": "bold"
           }
-        },
-        {
-          "type": "button",
-          "style": "primary",
-          "action": {
-            "type": "postback",
-            "label": "Daftar",
-            "displayText": "Daftar",
-            "data": "Daftar"
+        ]
+      },
+      "hero": {
+        "type": "image",
+        "url": "https://cdn.myanimelist.net/images/anime/1251/97634.jpg?s=5fdff55d183f2ca2fd5a1aac02c2a539",
+        "size": "full",
+        "aspectRatio": "3:4",
+        "aspectMode": "fit"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Fourth season of Boku no Hero Academia.",
+            "align": "start",
+            "wrap": true
           }
-        }
-      ]
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "Detail",
+              "uri": "https://linecorp.com"
+            },
+            "color": "#2E51A2",
+            "style": "primary"
+          }
+        ]
+      }
     }
   }
