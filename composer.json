@@ -1,0 +1,10 @@
+{
+    "name": "acer/info-anime",
+    "description": "Bot for get information of all anime you like",
+    "type": "project",
+    "require": {
+        "php": "^7.3",
+        "slim/slim": "^3.12",
+        "linecorp/line-bot-sdk": "^3.11"
+    }
+}
