@@ -69,20 +69,29 @@
                        //message from single user
                        $input = strtolower($event['message']['text']);
                        if(strpos($input,'anime') !== false ){
+                           //get from api
                            $text = explode(" ",$event['message']['text']);
+                           $api = file_get_contents("https://api.jikan.moe/v3/anime/".$text[1]);
+                           $data_api = json_decode($api,true);
+                           $judul = $data_api['title'];
+                           $gambar = $data_api['image_url'];
+                           $sinopsis = $data_api['synopsis'];
+                           //edit json
                            $flex_template = file_get_contents("anime_template.json");
                            $data = json_decode($flex_template,true);
-                           $data['header']['contents'][0]['text'] = $text[1];
+                           $data['header']['contents'][0]['text'] = $judul;
+                           $data['hero']['url'] = $gambar;
+                           $data['body']['contents'][0]['text'] = $sinopsis;
                            $newflex = json_encode($data);
                            file_put_contents("anime_template.json",$newflex);
-                           $flex_template2 = file_get_contents("anime_template.json");
+                           
                            $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                             'replyToken' => $event['replyToken'],
                             'messages'   => [
                                 [
                                     'type'     => 'flex',
                                     'altText'  => 'Test Flex Message',
-                                    'contents' => json_decode($flex_template2)
+                                    'contents' => json_decode(file_get_contents("anime_template.json"))
                                 ]
                             ],
                         ]);
