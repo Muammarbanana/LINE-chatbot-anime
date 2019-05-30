@@ -84,14 +84,14 @@
                            $data['body']['contents'][0]['text'] = $sinopsis;
                            $newflex = json_encode($data);
                            file_put_contents("anime_template.json",$newflex);
-                           
+                           $flex_template2 = file_get_contents("anime_template.json");
                            $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                             'replyToken' => $event['replyToken'],
                             'messages'   => [
                                 [
                                     'type'     => 'flex',
                                     'altText'  => 'Test Flex Message',
-                                    'contents' => json_decode(file_get_contents("anime_template.json"))
+                                    'contents' => json_decode($flex_template2)
                                 ]
                             ],
                         ]);
