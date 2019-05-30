@@ -67,6 +67,19 @@
                        //message from group / room              
                       } else {
                        //message from single user
+                       if(strtolower($event['message']['text']) == 'anime'){
+                           $flex_template = file_get_contents("anime_template.json");
+                           $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
+                            'replyToken' => $event['replyToken'],
+                            'messages'   => [
+                                [
+                                    'type'     => 'flex',
+                                    'altText'  => 'Test Flex Message',
+                                    'contents' => json_decode($flex_template)
+                                ]
+                            ],
+                        ]);
+                       }
                        $result = $bot->replyText($event['replyToken'], 'ini pesan dari single user');
  
                        // or we can use replyMessage() instead to send reply message
