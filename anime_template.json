@@ -19,7 +19,7 @@
         "url": "https://cdn.myanimelist.net/images/anime/1251/97634.jpg?s=5fdff55d183f2ca2fd5a1aac02c2a539",
         "size": "full",
         "aspectRatio": "3:4",
-        "aspectMode": "fit"
+        "aspectMode": "cover"
       },
       "body": {
         "type": "box",
@@ -28,6 +28,7 @@
           {
             "type": "text",
             "text": "Fourth season of Boku no Hero Academia.",
+            "size": "xs",
             "align": "start",
             "wrap": true
           }
