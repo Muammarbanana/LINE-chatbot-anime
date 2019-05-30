@@ -31,7 +31,7 @@
     });
      
     // buat route untuk webhook
-    $app->post('/webhook', function ($request, $response) use ($bot, $pass_signature)
+    $app->post('/webhook', function ($request, $response) use ($bot, $httpClient)
     {
         // get request body and line signature header
         $body        = file_get_contents('php://input');
@@ -54,6 +54,30 @@
         }
      
         // kode aplikasi nanti disini
+        $data = json_decode($body, true);
+        if(is_array($data['events'])){
+            foreach ($data['events'] as $event)
+            {
+                if ($event['type'] == 'message')
+                {
+                    if(
+                        $event['source']['type'] == 'group' or
+                        $event['source']['type'] == 'room'
+                      ){
+                       //message from group / room              
+                      } else {
+                       //message from single user
+                       $result = $bot->replyText($event['replyToken'], 'ini pesan dari single user');
+ 
+                       // or we can use replyMessage() instead to send reply message
+                       // $textMessageBuilder = new TextMessageBuilder($event['message']['text']);
+                       // $result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+ 
+                       return $response->withJson($result->getJSONDecodedBody(), $result->getHTTPStatus());
+                      }
+                }
+            } 
+        }
      
     });
      
