@@ -67,15 +67,21 @@
                        //message from group / room              
                       } else {
                        //message from single user
-                       if(strtolower($event['message']['text']) == 'anime'){
+                       if(strpos(strtolower($event['message']['text']),'anime')){
+                           $text = explode(" ",$event['message']['text']);
                            $flex_template = file_get_contents("anime_template.json");
+                           $data = json_decode($flex_template,true);
+                           $data['header']['contents']['text'] = $text[1];
+                           $newflex = json_encode($data);
+                           file_put_contents("anime_template.json",$data);
+                           $flex_template2 = file_get_contents("anime_template.json");
                            $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                             'replyToken' => $event['replyToken'],
                             'messages'   => [
                                 [
                                     'type'     => 'flex',
                                     'altText'  => 'Test Flex Message',
-                                    'contents' => json_decode($flex_template)
+                                    'contents' => json_decode($flex_template2)
                                 ]
                             ],
                         ]);
