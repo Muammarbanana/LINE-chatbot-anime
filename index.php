@@ -67,7 +67,8 @@
                        //message from group / room              
                       } else {
                        //message from single user
-                       if(strpos(strtolower($event['message']['text']),'anime')){
+                       $input = strtolower($event['message']['text']);
+                       if(strpos($input,'anime')){
                            $text = explode(" ",$event['message']['text']);
                            $flex_template = file_get_contents("anime_template.json");
                            $data = json_decode($flex_template,true);
