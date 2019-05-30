@@ -69,12 +69,12 @@
                        //message from single user
                        $input = strtolower($event['message']['text']);
                        if(strpos($input,'anime') !== false ){
-                           $text = explode(" ",$event['message']['text']);
+                           //$text = explode(" ",$event['message']['text']);
                            $flex_template = file_get_contents("anime_template.json");
-                           $data = json_decode($flex_template,true);
+                           //$data = json_decode($flex_template,true);
                            //$data['header']['contents']['text'] = $text[1];
-                           $newflex = json_encode($data);
-                           file_put_contents("anime_template.json",$data);
+                           //$newflex = json_encode($data);
+                           //file_put_contents("anime_template.json",$data);
                            $flex_template2 = file_get_contents("anime_template.json");
                            $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                             'replyToken' => $event['replyToken'],
