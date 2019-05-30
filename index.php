@@ -12,8 +12,8 @@
     $pass_signature = true;
      
     // set LINE channel_access_token and channel_secret
-    $channel_access_token = "";
-    $channel_secret = "";
+    $channel_access_token = "aNRZPoy7ZLpEt2u3NdMWXjCD1NrnXh0RzgtHYgDmbaa/QnwY2qHBvxdLRmDfSKMXgBfYZG66G+bG1cJiaMtpRzXT7ubqdzW8pvH1Qjnc9uU+YA5IiuZBSTEUe14qgNF0e+qA32t3cEQ+QZFD+sg76QdB04t89/1O/w1cDnyilFU=";
+    $channel_secret = "c7efc3240f4cb10261a76048d2669491";
      
     // inisiasi objek bot
     $httpClient = new CurlHTTPClient($channel_access_token);
