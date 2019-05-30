@@ -79,9 +79,9 @@
                                 ]
                             ],
                         ]);
+                       }else{
+                        $result = $bot->replyText($event['replyToken'], 'ini pesan dari single user');
                        }
-                       $result = $bot->replyText($event['replyToken'], 'ini pesan dari single user');
- 
                        // or we can use replyMessage() instead to send reply message
                        // $textMessageBuilder = new TextMessageBuilder($event['message']['text']);
                        // $result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
