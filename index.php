@@ -98,7 +98,7 @@
                        }elseif(strpos($input,'search') !== false ){
                         //get from api
                         //edit json
-                        $flex_template = file_get_contents("carousel_hasil_search.json");
+                        $flex_template = file_get_contents("anime_template.json");
                         $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                             'replyToken' => $event['replyToken'],
                             'messages'   => [
