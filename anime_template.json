@@ -50,7 +50,7 @@
               "label": "Detail",
               "uri": "https://linecorp.com"
             },
-            "style": "link"
+            "style": "primary"
           }
         ]
       }
