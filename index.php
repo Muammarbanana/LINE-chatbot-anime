@@ -105,7 +105,7 @@
                                 [
                                     'type'     => 'flex',
                                     'altText'  => 'Test Flex Message',
-                                    'contents' => json_decode($flex_template2)
+                                    'contents' => json_decode($flex_template)
                                 ]
                             ],
                         ]);
