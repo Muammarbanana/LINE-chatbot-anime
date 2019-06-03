@@ -1,6 +1,11 @@
 {
       "type": "bubble",
       "direction": "ltr",
+      "styles":{
+        "footer":{
+          "backgroundColor":"#2E51A2"
+        }
+      },
       "header": {
         "type": "box",
         "layout": "vertical",
