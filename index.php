@@ -104,13 +104,30 @@
                             //get from api
                             //edit json
                             $flex_template = file_get_contents("carousel_hasil_search.json");
+                            $flex_anime = file_get_contents("anime_template.json");
+                            $data = json_decode($flex_anime,true);
+                            $data_carousel = json_decode($flex_template,true);
+                            $api = file_get_contents("https://api.jikan.moe/v3/search/anime?q=".$text[1]."limit=5");
+                            $data_api = json_decode($api,true);
+                            foreach($data_api['results'] as $key){
+                                $judul = $key['title'];
+                                $gambar = $key['image_url'];
+                                $sinopsis = $key['synopsis'];
+                                $data['header']['contents'][0]['text'] = $judul;
+                                $data['hero']['url'] = $gambar;
+                                $data['body']['contents'][0]['text'] = $sinopsis;
+                                array_push($data_carousel['contents'],$data);
+                            }
+                            $newflex = json_encode($data_carousel);
+                            file_put_contents("carousel_hasil_search2.json",$newflex);
+                            $flex_template2 = file_get_contents("carousel_hasil_search2.json");
                             $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                                 'replyToken' => $event['replyToken'],
                                 'messages'   => [
                                     [
                                         'type'     => 'flex',
                                         'altText'  => 'Test Flex Message',
-                                        'contents' => json_decode($flex_template)
+                                        'contents' => json_decode($flex_template2)
                                     ]
                                 ],
                             ]);
