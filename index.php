@@ -68,7 +68,7 @@
                       } else {
                        //message from single user
                        $input = strtolower($event['message']['text']);
-                       $text = explode(" ",$event['message']['text']);
+                       $text = explode(":",$input);
                        if(strpos($input,'anime') !== false ){
                            if($text[0] == "anime"){
                             //get from api
