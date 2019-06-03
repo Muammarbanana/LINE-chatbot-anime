@@ -107,7 +107,7 @@
                             $flex_anime = file_get_contents("anime_template.json");
                             $data = json_decode($flex_anime,true);
                             $data_carousel = json_decode($flex_template,true);
-                            $api = file_get_contents("https://api.jikan.moe/v3/search/anime?q=".$text[1]."limit=5");
+                            $api = file_get_contents("https://api.jikan.moe/v3/search/anime?q=".$text[1]."&limit=5");
                             $data_api = json_decode($api,true);
                             foreach($data_api['results'] as $key){
                                 $judul = $key['title'];
