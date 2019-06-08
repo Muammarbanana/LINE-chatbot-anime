@@ -72,8 +72,7 @@
                        if(strpos($input,'anime') !== false ){
                            if($text[0] == "anime"){
                             //get from api
-                            $query = urlencode($text[1]);
-                            $api = file_get_contents("https://api.jikan.moe/v3/anime/".$query);
+                            $api = file_get_contents("https://api.jikan.moe/v3/anime/".$text[1]);
                             $data_api = json_decode($api,true);
                             $judul = $data_api['title'];
                             $gambar = $data_api['image_url'];
