@@ -70,7 +70,7 @@
                        if($event['type'] == 'message'){
                         $input = strtolower($event['message']['text']);
                        }elseif ($event['type'] == 'postback') {
-                        $input = strtolower($event['postback']['displayText']);
+                        $input = strtolower($event['postback']['data']);
                        }
                        $text = explode(":",$input);
                        if(strpos($input,'anime') !== false ){
@@ -87,6 +87,7 @@
                             $flex_template = file_get_contents("anime_template.json");
                             $data = json_decode($flex_template,true);
                             $data['footer']['contents'][0]['action']['displayText'] = "Anime:".$id;
+                            $data['footer']['contents'][0]['action']['data'] = "Anime:".$id;
                             $data['header']['contents'][0]['text'] = $judul;
                             $data['hero']['url'] = $gambar;
                             if($sinopsis == NULL){
@@ -127,6 +128,7 @@
                                 $gambar = $key['image_url'];
                                 $sinopsis = $key['synopsis'];
                                 $data['footer']['contents'][0]['action']['displayText'] = "Anime:".$id;
+                                $data['footer']['contents'][0]['action']['data'] = "Anime:".$id;
                                 $data['header']['contents'][0]['text'] = $judul;
                                 $data['hero']['url'] = $gambar;
                                 if($sinopsis == NULL){
