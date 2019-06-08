@@ -46,9 +46,10 @@
           {
             "type": "button",
             "action": {
-              "type": "uri",
+              "type": "postback",
               "label": "Detail",
-              "uri": "https://linecorp.com"
+              "displayText": "Detail",
+              "data":"anime"
             },
             "color": "#2E51A2",
             "style": "primary"
