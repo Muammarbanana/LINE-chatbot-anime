@@ -75,7 +75,7 @@
                             $query = urlencode(str_replace(' ', '', $text[1]));
                             $api = file_get_contents("https://api.jikan.moe/v3/anime/".$query);
                             $data_api = json_decode($api,true);
-                            $id = $data_api['id'];
+                            $id = $data_api['mal_id'];
                             $judul = $data_api['title'];
                             $gambar = $data_api['image_url'];
                             $sinopsis = $data_api['synopsis'];
@@ -118,7 +118,7 @@
                             $api = file_get_contents("https://api.jikan.moe/v3/search/anime?q=$query&limit=5");
                             $data_api = json_decode($api,true);
                             foreach($data_api['results'] as $key){
-                                $id = $key['id'];
+                                $id = $key['mal_id'];
                                 $judul = $key['title'];
                                 $gambar = $key['image_url'];
                                 $sinopsis = $key['synopsis'];
