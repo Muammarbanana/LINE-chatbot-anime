@@ -70,7 +70,7 @@
                        if($event['type'] == 'message'){
                         $input = strtolower($event['message']['text']);
                        }elseif ($event['type'] == 'postback') {
-                        $input = strtolower($event['postback']['text']);
+                        $input = strtolower($event['postback']['displayText']);
                        }
                        $text = explode(":",$input);
                        if(strpos($input,'anime') !== false ){
