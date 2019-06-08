@@ -67,7 +67,11 @@
                        //message from group / room              
                       } else {
                        //message from single user
-                       $input = strtolower($event['message']['text']);
+                       if($event['type'] == 'message'){
+                        $input = strtolower($event['message']['text']);
+                       }elseif ($event['type'] == 'postback') {
+                        $input = strtolower($event['postback']['text']);
+                       }
                        $text = explode(":",$input);
                        if(strpos($input,'anime') !== false ){
                            if($text[0] == "anime"){
@@ -82,7 +86,7 @@
                             //edit json
                             $flex_template = file_get_contents("anime_template.json");
                             $data = json_decode($flex_template,true);
-                            $data['footer']['contents'][0]['action']['displayText'] = $id;
+                            $data['footer']['contents'][0]['action']['displayText'] = "Anime:".$id;
                             $data['header']['contents'][0]['text'] = $judul;
                             $data['hero']['url'] = $gambar;
                             if($sinopsis == NULL){
@@ -122,7 +126,7 @@
                                 $judul = $key['title'];
                                 $gambar = $key['image_url'];
                                 $sinopsis = $key['synopsis'];
-                                $data['footer']['contents'][0]['action']['displayText'] = $id;
+                                $data['footer']['contents'][0]['action']['displayText'] = "Anime:".$id;
                                 $data['header']['contents'][0]['text'] = $judul;
                                 $data['hero']['url'] = $gambar;
                                 if($sinopsis == NULL){
