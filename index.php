@@ -72,7 +72,8 @@
                        if(strpos($input,'anime') !== false ){
                            if($text[0] == "anime"){
                             //get from api
-                            $api = file_get_contents("https://api.jikan.moe/v3/anime/".$text[1]);
+                            $query = urlencode($text[1]);
+                            $api = file_get_contents("https://api.jikan.moe/v3/anime/".$query);
                             $data_api = json_decode($api,true);
                             $judul = $data_api['title'];
                             $gambar = $data_api['image_url'];
@@ -82,7 +83,7 @@
                             $data = json_decode($flex_template,true);
                             $data['header']['contents'][0]['text'] = $judul;
                             $data['hero']['url'] = $gambar;
-                            $data['body']['contents'][0]['text'] = $sinopsis;
+                            $data['body']['contents'][0]['text'] = "https://api.jikan.moe/v3/anime/".$query;
                             $newflex = json_encode($data);
                             file_put_contents("anime_template.json",$newflex);
                             $flex_template2 = file_get_contents("anime_template.json");
