@@ -58,7 +58,7 @@
         if(is_array($data['events'])){
             foreach ($data['events'] as $event)
             {
-                if ($event['type'] == 'message')
+                if ($event['type'] == 'message' || $event['type'] == 'postback')
                 {
                     if(
                         $event['source']['type'] == 'group' or

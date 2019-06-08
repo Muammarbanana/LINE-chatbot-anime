@@ -48,7 +48,7 @@
             "action": {
               "type": "postback",
               "label": "Detail",
-              "displayText": "Detail",
+              "displayText": "Anime:20",
               "data":"anime"
             },
             "color": "#2E51A2",
