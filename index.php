@@ -75,12 +75,14 @@
                             $query = urlencode(str_replace(' ', '', $text[1]));
                             $api = file_get_contents("https://api.jikan.moe/v3/anime/".$query);
                             $data_api = json_decode($api,true);
+                            $id = $data_api['id'];
                             $judul = $data_api['title'];
                             $gambar = $data_api['image_url'];
                             $sinopsis = $data_api['synopsis'];
                             //edit json
                             $flex_template = file_get_contents("anime_template.json");
                             $data = json_decode($flex_template,true);
+                            $data['footer']['contents'][0]['action']['displayText'] = $id;
                             $data['header']['contents'][0]['text'] = $judul;
                             $data['hero']['url'] = $gambar;
                             if($sinopsis == NULL){
@@ -116,9 +118,11 @@
                             $api = file_get_contents("https://api.jikan.moe/v3/search/anime?q=$query&limit=5");
                             $data_api = json_decode($api,true);
                             foreach($data_api['results'] as $key){
+                                $id = $key['id'];
                                 $judul = $key['title'];
                                 $gambar = $key['image_url'];
                                 $sinopsis = $key['synopsis'];
+                                $data['footer']['contents'][0]['action']['displayText'] = $id;
                                 $data['header']['contents'][0]['text'] = $judul;
                                 $data['hero']['url'] = $gambar;
                                 if($sinopsis == NULL){
