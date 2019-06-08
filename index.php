@@ -83,7 +83,11 @@
                             $data = json_decode($flex_template,true);
                             $data['header']['contents'][0]['text'] = $judul;
                             $data['hero']['url'] = $gambar;
-                            $data['body']['contents'][0]['text'] = $sinopsis;
+                            if($sinopsis == NULL){
+                                $data['body']['contents'][0]['text'] = "There is no synopsis yet";
+                            }else{
+                                $data['body']['contents'][0]['text'] = $sinopsis;
+                            }
                             $newflex = json_encode($data);
                             file_put_contents("anime_template.json",$newflex);
                             $flex_template2 = file_get_contents("anime_template.json");
