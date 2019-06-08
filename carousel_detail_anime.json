@@ -1,0 +1,44 @@
+{
+    "type": "carousel",
+    "contents": [
+        {
+            "type": "bubble",
+            "styles":{
+                "header":{
+                    "backgroundColor":"#2E51A2"
+                },
+                "footer":{
+                    "backgroundColor":"#2E51A2"
+                }
+            },
+            "direction": "ltr",
+            "header": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "Main Information",
+                  "size": "md",
+                  "align": "center",
+                  "weight": "bold",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "Fourth season of Boku no Hero Academia.",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                }
+              ]
+            }
+        }
+    ]
+}

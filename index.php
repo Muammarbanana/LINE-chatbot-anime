@@ -155,6 +155,18 @@
                            }else{
                             $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
                            }
+                       }elseif(strpos($input,'cek') !== false ){
+                        $flex_template = file_get_contents("carousel_detail_anime.json");
+                        $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
+                            'replyToken' => $event['replyToken'],
+                            'messages'   => [
+                                [
+                                    'type'     => 'flex',
+                                    'altText'  => 'Test Flex Message',
+                                    'contents' => json_decode($flex_template)
+                                ]
+                            ],
+                        ]);
                        }else{
                         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
                        }
