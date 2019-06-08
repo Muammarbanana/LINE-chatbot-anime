@@ -81,7 +81,7 @@
                             //edit json
                             $flex_template = file_get_contents("anime_template.json");
                             $data = json_decode($flex_template,true);
-                            $data['header']['contents'][0]['text'] = $judul;
+                            $data['header']['contents'][0]['text'] = "https://api.jikan.moe/v3/anime/$query";
                             $data['hero']['url'] = $gambar;
                             $data['body']['contents'][0]['text'] = $sinopsis;
                             $newflex = json_encode($data);
