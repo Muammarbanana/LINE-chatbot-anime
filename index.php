@@ -117,7 +117,12 @@
                                 $sinopsis = $key['synopsis'];
                                 $data['header']['contents'][0]['text'] = $judul;
                                 $data['hero']['url'] = $gambar;
-                                $data['body']['contents'][0]['text'] = $sinopsis;
+                                if($sinopsis == NULL){
+                                    $data['body']['contents'][0]['text'] = "There is no synopsis yet";
+                                }else{
+                                    $data['body']['contents'][0]['text'] = $sinopsis;
+                                }   
+                                
                                 array_push($data_carousel['contents'],$data);
                             }
                             $newflex = json_encode($data_carousel);
