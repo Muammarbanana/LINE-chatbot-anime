@@ -73,7 +73,7 @@
                            if($text[0] == "anime"){
                             //get from api
                             $query = urlencode($text[1]);
-                            $api = file_get_contents("https://api.jikan.moe/v3/anime/$query");
+                            $api = file_get_contents("https://api.jikan.moe/v3/anime/".$query);
                             $data_api = json_decode($api,true);
                             $judul = $data_api['title'];
                             $gambar = $data_api['image_url'];
@@ -81,12 +81,12 @@
                             //edit json
                             $flex_template = file_get_contents("anime_template.json");
                             $data = json_decode($flex_template,true);
-                            $data['header']['contents'][0]['text'] = "https://api.jikan.moe/v3/anime/$query";
+                            $data['header']['contents'][0]['text'] = $judul;
                             $data['hero']['url'] = $gambar;
                             $data['body']['contents'][0]['text'] = $sinopsis;
                             $newflex = json_encode($data);
-                            file_put_contents("anime_template2.json",$newflex);
-                            $flex_template2 = file_get_contents("anime_template2.json");
+                            file_put_contents("anime_template.json",$newflex);
+                            $flex_template2 = file_get_contents("anime_template.json");
                             $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                                 'replyToken' => $event['replyToken'],
                                 'messages'   => [
