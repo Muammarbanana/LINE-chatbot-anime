@@ -18,7 +18,7 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "Main Information",
+                  "text": "Information",
                   "size": "md",
                   "align": "center",
                   "weight": "bold",
@@ -30,6 +30,34 @@
               "type": "box",
               "layout": "vertical",
               "contents": [
+                {
+                  "type": "text",
+                  "text": "Fourth season of Boku no Hero Academia.",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "Fourth season of Boku no Hero Academia.",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "Fourth season of Boku no Hero Academia.",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "Fourth season of Boku no Hero Academia.",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
                 {
                   "type": "text",
                   "text": "Fourth season of Boku no Hero Academia.",
