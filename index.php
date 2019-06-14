@@ -84,6 +84,7 @@
                             $source = $data_api['source'];
                             $status = $data_api['status'];
                             $genre = "";
+                            $opening = "";
                             if($data_api['premiered']==NULL){
                                 $premiered = "?";
                             }else{
@@ -103,6 +104,10 @@
                                 $genre .= ", ".$key['name'];
                             }
                             $genre = substr($genre,2);
+                            foreach($data_api['opening_theme'] as $key => $value){
+                                $opening .= "\n ".$value;
+                            }
+                            $opening = substr($opening,2);
                             $duration = $data_api['duration'];
                             if($data_api['rating']==NULL){
                                 $rating = "?";
@@ -130,8 +135,9 @@
                             $data['contents'][0]['body']['contents'][7]['text'] = "Genres: ".$genre;
                             $data['contents'][0]['body']['contents'][8]['text'] = "Rating: ".$rating;
                             $data['contents'][0]['body']['contents'][9]['text'] = "Score: ".$score;
-                            $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;   
-                            $data['contents'][2]['body']['contents'][0]['text'] = $video;                         
+                            $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;  
+                            $data['contents'][2]['body']['contents'][0]['text'] = $opening; 
+                            $data['contents'][3]['body']['contents'][0]['text'] = $video;                         
                             $newflex = json_encode($data);
                             file_put_contents("carousel_detail_anime.json",$newflex);
                             $flex_template2 = file_get_contents("carousel_detail_anime.json");

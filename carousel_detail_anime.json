@@ -159,6 +159,45 @@
             "contents": [
               {
                 "type": "text",
+                "text": "Opening Theme",
+                "size": "md",
+                "align": "center",
+                "weight": "bold",
+                "color": "#FFFFFF"
+              }
+            ]
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Lagu",
+                "size": "xs",
+                "align": "start",
+                "wrap": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "bubble",
+          "styles":{
+              "header":{
+                  "backgroundColor":"#2E51A2"
+              },
+              "footer":{
+                  "backgroundColor":"#2E51A2"
+              }
+          },
+          "direction": "ltr",
+          "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
                 "text": "Trailer",
                 "size": "md",
                 "align": "center",
