@@ -76,10 +76,10 @@
                        if(strpos($input,'anime') !== false ){
                            if($text[0] == "anime"){
                             $flex_template = file_get_contents("carousel_detail_anime.json");
-                            $data = json_decode($flex_template,true);
-                            $api = file_get_content("http://api.jikan.moe/v3/anime/".$text[1]);
-                            $data_api = json_decode($api,true);
-                            
+                            //$data = json_decode($flex_template,true);
+                            //$api = file_get_content("http://api.jikan.moe/v3/anime/".$text[1]);
+                            //$data_api = json_decode($api,true);
+
                             $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                                 'replyToken' => $event['replyToken'],
                                 'messages'   => [
