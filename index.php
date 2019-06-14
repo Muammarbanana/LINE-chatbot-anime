@@ -108,10 +108,10 @@
                             $data['contents'][0]['body']['contents'][2]['text'] = "Source: ".$source;
                             $data['contents'][0]['body']['contents'][3]['text'] = "Status: ".$status;
                             $data['contents'][0]['body']['contents'][4]['text'] = "Premiered: ".$premiered;
-                            $data['contents'][0]['body']['contents'][4]['text'] = "Duration: ".$duration;
-                            $data['contents'][0]['body']['contents'][5]['text'] = "Genres: ".$genre;
-                            $data['contents'][0]['body']['contents'][5]['text'] = "Rating: ".$rating;
-                            $data['contents'][0]['body']['contents'][6]['text'] = "Score: ".$score;
+                            $data['contents'][0]['body']['contents'][5]['text'] = "Duration: ".$duration;
+                            $data['contents'][0]['body']['contents'][6]['text'] = "Genres: ".$genre;
+                            $data['contents'][0]['body']['contents'][7]['text'] = "Rating: ".$rating;
+                            $data['contents'][0]['body']['contents'][8]['text'] = "Score: ".$score;
                             $newflex = json_encode($data);
                             file_put_contents("carousel_detail_anime.json",$newflex);
                             $flex_template2 = file_get_contents("carousel_detail_anime.json");
