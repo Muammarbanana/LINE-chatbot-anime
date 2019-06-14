@@ -32,42 +32,49 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "Fourth season of Boku no Hero Academia.",
+                  "text": "Title",
                   "size": "xs",
                   "align": "start",
                   "wrap": true
                 },
                 {
                   "type": "text",
-                  "text": "Fourth season of Boku no Hero Academia.",
+                  "text": "Type",
                   "size": "xs",
                   "align": "start",
                   "wrap": true
                 },
                 {
                   "type": "text",
-                  "text": "Fourth season of Boku no Hero Academia.",
+                  "text": "Source",
                   "size": "xs",
                   "align": "start",
                   "wrap": true
                 },
                 {
                   "type": "text",
-                  "text": "Fourth season of Boku no Hero Academia.",
+                  "text": "Status",
                   "size": "xs",
                   "align": "start",
                   "wrap": true
                 },
                 {
                   "type": "text",
-                  "text": "Fourth season of Boku no Hero Academia.",
+                  "text": "Premiered",
                   "size": "xs",
                   "align": "start",
                   "wrap": true
                 },
                 {
                   "type": "text",
-                  "text": "Fourth season of Boku no Hero Academia.",
+                  "text": "Genres",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "Score",
                   "size": "xs",
                   "align": "start",
                   "wrap": true

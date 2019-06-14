@@ -89,12 +89,17 @@
                             }else{
                                 $score = $data_api['score'];
                             }
+                            foreach($data_api['genres'] as $key){
+                                $genre = ", ".$key['name'];
+                            }
+                            $genre = substr($genre,2);
                             $data['contents'][0]['body']['contents'][0]['text'] = "Title: ".$title;
                             $data['contents'][0]['body']['contents'][1]['text'] = "Type: ".$type;
                             $data['contents'][0]['body']['contents'][2]['text'] = "Source: ".$source;
                             $data['contents'][0]['body']['contents'][3]['text'] = "Status: ".$status;
                             $data['contents'][0]['body']['contents'][4]['text'] = "Premiered: ".$premiered;
-                            $data['contents'][0]['body']['contents'][5]['text'] = "Score: ".$score;
+                            $data['contents'][0]['body']['contents'][5]['text'] = "Genres: ".$genre;
+                            $data['contents'][0]['body']['contents'][6]['text'] = "Score: ".$score;
                             $newflex = json_encode($data);
                             file_put_contents("carousel_detail_anime.json",$newflex);
                             $flex_template2 = file_get_contents("carousel_detail_anime.json");
@@ -103,7 +108,7 @@
                                 'messages'   => [
                                     [
                                         'type'     => 'flex',
-                                        'altText'  => 'Test Flex Message',
+                                        'altText'  => 'Detail Anime',
                                         'contents' => json_decode($flex_template2)
                                     ]
                                 ],
@@ -147,7 +152,7 @@
                                 'messages'   => [
                                     [
                                         'type'     => 'flex',
-                                        'altText'  => 'Test Flex Message',
+                                        'altText'  => 'Search Result',
                                         'contents' => json_decode($flex_template2)
                                     ]
                                 ],
