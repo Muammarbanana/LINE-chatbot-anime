@@ -90,7 +90,7 @@
                                 $score = $data_api['score'];
                             }
                             foreach($data_api['genres'] as $key){
-                                $genre = ", ".$key['name'];
+                                $genre .= ", ".$key['name'];
                             }
                             $genre = substr($genre,2);
                             $data['contents'][0]['body']['contents'][0]['text'] = "Title: ".$title;
