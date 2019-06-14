@@ -109,6 +109,11 @@
                             }else{
                                 $sinopsis = $data_api['synopsis'];
                             }
+                            if($data_api['trailer_url']==NULL){
+                                $data['contents'][2]['body']['contents'][0]['url'] = "";    
+                            }else{
+                                $data['contents'][2]['body']['contents'][0]['url'] = $data_api['trailer_url'];
+                            }
                             $data['contents'][0]['body']['contents'][0]['text'] = "Title: ".$title;
                             $data['contents'][0]['body']['contents'][1]['text'] = "Type: ".$type;
                             $data['contents'][0]['body']['contents'][2]['text'] = "Source: ".$source;
@@ -118,7 +123,7 @@
                             $data['contents'][0]['body']['contents'][6]['text'] = "Genres: ".$genre;
                             $data['contents'][0]['body']['contents'][7]['text'] = "Rating: ".$rating;
                             $data['contents'][0]['body']['contents'][8]['text'] = "Score: ".$score;
-                            $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;
+                            $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;                            
                             $newflex = json_encode($data);
                             file_put_contents("carousel_detail_anime.json",$newflex);
                             $flex_template2 = file_get_contents("carousel_detail_anime.json");
