@@ -89,10 +89,10 @@
                             }else{
                                 $premiered = $data_api['premiered'];
                             }
-                            if($data_api['aired']==NULL){
+                            if($data_api['aired']['string']==NULL){
                                 $aired = "?";
                             }else{
-                                $aired = $data_api['aired'];
+                                $aired = $data_api['aired']['string'];
                             }
                             if($data_api['score']==NULL){
                                 $score = "?";
