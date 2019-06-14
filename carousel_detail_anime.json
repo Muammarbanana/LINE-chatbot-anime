@@ -67,6 +67,13 @@
                 },
                 {
                   "type": "text",
+                  "text": "Aired",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
                   "text": "Duration",
                   "size": "xs",
                   "align": "start",

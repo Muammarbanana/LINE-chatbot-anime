@@ -89,6 +89,11 @@
                             }else{
                                 $premiered = $data_api['premiered'];
                             }
+                            if($data_api['aired']==NULL){
+                                $aired = "?";
+                            }else{
+                                $aired = $data_api['aired'];
+                            }
                             if($data_api['score']==NULL){
                                 $score = "?";
                             }else{
@@ -120,10 +125,11 @@
                             $data['contents'][0]['body']['contents'][2]['text'] = "Source: ".$source;
                             $data['contents'][0]['body']['contents'][3]['text'] = "Status: ".$status;
                             $data['contents'][0]['body']['contents'][4]['text'] = "Premiered: ".$premiered;
-                            $data['contents'][0]['body']['contents'][5]['text'] = "Duration: ".$duration;
-                            $data['contents'][0]['body']['contents'][6]['text'] = "Genres: ".$genre;
-                            $data['contents'][0]['body']['contents'][7]['text'] = "Rating: ".$rating;
-                            $data['contents'][0]['body']['contents'][8]['text'] = "Score: ".$score;
+                            $data['contents'][0]['body']['contents'][5]['text'] = "Aired: ".$aired;
+                            $data['contents'][0]['body']['contents'][6]['text'] = "Duration: ".$duration;
+                            $data['contents'][0]['body']['contents'][7]['text'] = "Genres: ".$genre;
+                            $data['contents'][0]['body']['contents'][8]['text'] = "Rating: ".$rating;
+                            $data['contents'][0]['body']['contents'][9]['text'] = "Score: ".$score;
                             $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;   
                             $data['contents'][2]['body']['contents'][0]['text'] = $video;                         
                             $newflex = json_encode($data);
