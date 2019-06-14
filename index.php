@@ -104,10 +104,14 @@
                                 $genre .= ", ".$key['name'];
                             }
                             $genre = substr($genre,2);
-                            foreach($data_api['opening_themes'] as $key){
-                                $opening .= "\n".$key;
+                            if(count((array)$data_api['opening_themes'])==0){
+                                $opening = "There is no opening theme yet";
+                            }else{
+                                foreach($data_api['opening_themes'] as $key){
+                                    $opening .= "\n".$key;
+                                }
+                                $opening = substr($opening,1);
                             }
-                            $opening = substr($opening,1);
                             $duration = $data_api['duration'];
                             if($data_api['rating']==NULL){
                                 $rating = "?";
