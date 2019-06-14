@@ -77,7 +77,7 @@
                            if($text[0] == "anime"){
                             $flex_template = file_get_contents("carousel_detail_anime.json");
                             $data = json_decode($flex_template,true);
-                            $api = file_get_content("http://api.jikan.moe/v3/anime/".$text[1]);
+                            $api = file_get_contents("http://api.jikan.moe/v3/anime/".$text[1]);
                             $data_api = json_decode($api,true);
                             $title = $data_api['title'];
                             $type = $data_api['type'];
