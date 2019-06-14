@@ -83,6 +83,7 @@
                             $type = $data_api['type'];
                             $source = $data_api['source'];
                             $status = $data_api['status'];
+                            $genre = "";
                             if($data_api['premiered']==NULL){
                                 $premiered = "?";
                             }else{
