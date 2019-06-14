@@ -83,7 +83,7 @@
                             $type = $data_api['type'];
                             $source = $data_api['source'];
                             $status = $data_api['status'];
-                            $data['body']['contents'][0]['text'] = "Title: ".$title;
+                            $data['body']['contents'][0]['text'] = "https://api.jikan.moe/v3/anime/".$text[1];
                             $data['body']['contents'][1]['text'] = "Type: ".$type;
                             $data['body']['contents'][2]['text'] = "Source: ".$source;
                             $data['body']['contents'][3]['text'] = "Status: ".$status;
