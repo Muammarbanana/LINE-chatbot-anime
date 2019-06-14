@@ -85,6 +85,7 @@
                             $status = $data_api['status'];
                             $genre = "";
                             $opening = "";
+                            $ending = "";
                             if($data_api['premiered']==NULL){
                                 $premiered = "?";
                             }else{
@@ -112,6 +113,14 @@
                                 }
                                 $opening = substr($opening,1);
                             }
+                            if(count((array)$data_api['ending_themes'])==0){
+                                $ending = "There is no ending theme yet";
+                            }else{
+                                foreach($data_api['ending_themes'] as $key){
+                                    $ending .= "\n".$key;
+                                }
+                                $ending = substr($ending,1);
+                            }
                             $duration = $data_api['duration'];
                             if($data_api['rating']==NULL){
                                 $rating = "?";
@@ -124,7 +133,7 @@
                                 $sinopsis = $data_api['synopsis'];
                             }
                             if($data_api['trailer_url']==NULL){
-                                $video = "There is no trailer";    
+                                $video = "There is no trailer yet";    
                             }else{
                                 $video = $data_api['trailer_url'];   
                             }
@@ -139,8 +148,9 @@
                             $data['contents'][0]['body']['contents'][8]['text'] = "Rating: ".$rating;
                             $data['contents'][0]['body']['contents'][9]['text'] = "Score: ".$score;
                             $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;  
-                            $data['contents'][2]['body']['contents'][0]['text'] = $opening; 
-                            $data['contents'][3]['body']['contents'][0]['text'] = $video;                         
+                            $data['contents'][2]['body']['contents'][0]['text'] = $opening;
+                            $data['contents'][3]['body']['contents'][0]['text'] = $ending; 
+                            $data['contents'][4]['body']['contents'][0]['text'] = $video;                         
                             $newflex = json_encode($data);
                             file_put_contents("carousel_detail_anime.json",$newflex);
                             $flex_template2 = file_get_contents("carousel_detail_anime.json");
