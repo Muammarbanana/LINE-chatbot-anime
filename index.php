@@ -125,7 +125,7 @@
                             $data['contents'][0]['body']['contents'][7]['text'] = "Rating: ".$rating;
                             $data['contents'][0]['body']['contents'][8]['text'] = "Score: ".$score;
                             $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;   
-                            $data['contents'][2]['body']['contents'][0]['text'] = $video;                         
+                            $data['contents'][2]['body']['contents'][0]['url'] = $video;                         
                             $newflex = json_encode($data);
                             file_put_contents("carousel_detail_anime.json",$newflex);
                             $flex_template2 = file_get_contents("carousel_detail_anime.json");

@@ -165,11 +165,8 @@
             "layout": "vertical",
             "contents": [
               {
-                "type": "text",
-                "text": "URL Video",
-                "size": "xs",
-                "align": "start",
-                "wrap": true
+                "type": "video",
+                "url": "URL Video"
               }
             ]
           }
