@@ -83,7 +83,11 @@
                             $type = $data_api['type'];
                             $source = $data_api['source'];
                             $status = $data_api['status'];
-                            $premiered = $data_api['premiered'];
+                            if($data_api['premiered']==NULL){
+                                $premiered = "?";
+                            }else{
+                                $premiered = $data_api['premiered'];
+                            }
                             if($data_api['score']==NULL){
                                 $score = "?";
                             }else{
@@ -93,12 +97,20 @@
                                 $genre .= ", ".$key['name'];
                             }
                             $genre = substr($genre,2);
+                            $duration = $data_api['duration'];
+                            if($data_api['rating']==NULL){
+                                $rating = "?";
+                            }else{
+                                $rating = $data_api['rating'];
+                            }
                             $data['contents'][0]['body']['contents'][0]['text'] = "Title: ".$title;
                             $data['contents'][0]['body']['contents'][1]['text'] = "Type: ".$type;
                             $data['contents'][0]['body']['contents'][2]['text'] = "Source: ".$source;
                             $data['contents'][0]['body']['contents'][3]['text'] = "Status: ".$status;
                             $data['contents'][0]['body']['contents'][4]['text'] = "Premiered: ".$premiered;
+                            $data['contents'][0]['body']['contents'][4]['text'] = "Duration: ".$duration;
                             $data['contents'][0]['body']['contents'][5]['text'] = "Genres: ".$genre;
+                            $data['contents'][0]['body']['contents'][5]['text'] = "Rating: ".$rating;
                             $data['contents'][0]['body']['contents'][6]['text'] = "Score: ".$score;
                             $newflex = json_encode($data);
                             file_put_contents("carousel_detail_anime.json",$newflex);

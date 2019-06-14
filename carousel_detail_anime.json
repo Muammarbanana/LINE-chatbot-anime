@@ -67,7 +67,21 @@
                 },
                 {
                   "type": "text",
+                  "text": "Duration",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
                   "text": "Genres",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "Rating",
                   "size": "xs",
                   "align": "start",
                   "wrap": true
