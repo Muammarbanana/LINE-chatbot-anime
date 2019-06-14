@@ -104,8 +104,8 @@
                                 $genre .= ", ".$key['name'];
                             }
                             $genre = substr($genre,2);
-                            foreach($data_api['opening_theme'] as $key => $value){
-                                $opening .= "\n ".$value;
+                            foreach($data_api['opening_themes'] as $key){
+                                $opening .= "\n ".$key;
                             }
                             $opening = substr($opening,2);
                             $duration = $data_api['duration'];
@@ -122,8 +122,7 @@
                             if($data_api['trailer_url']==NULL){
                                 $video = "There is no trailer";    
                             }else{
-                                $video = $data_api['trailer_url'];
-                                
+                                $video = $data_api['trailer_url'];   
                             }
                             $data['contents'][0]['body']['contents'][0]['text'] = "Title: ".$title;
                             $data['contents'][0]['body']['contents'][1]['text'] = "Type: ".$type;
