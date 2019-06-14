@@ -105,7 +105,7 @@
                             }
                             $genre = substr($genre,2);
                             foreach($data_api['opening_themes'] as $key){
-                                $opening .= "\n ".$key;
+                                $opening .= "\n-".$key;
                             }
                             $opening = substr($opening,2);
                             $duration = $data_api['duration'];
