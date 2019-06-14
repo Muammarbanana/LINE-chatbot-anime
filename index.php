@@ -76,17 +76,27 @@
                        if(strpos($input,'anime') !== false ){
                            if($text[0] == "anime"){
                             $flex_template = file_get_contents("carousel_detail_anime.json");
-                            //$data = json_decode($flex_template,true);
-                            //$api = file_get_content("http://api.jikan.moe/v3/anime/".$text[1]);
-                            //$data_api = json_decode($api,true);
-
+                            $data = json_decode($flex_template,true);
+                            $api = file_get_content("http://api.jikan.moe/v3/anime/".$text[1]);
+                            $data_api = json_decode($api,true);
+                            $title = $data_api['title'];
+                            $type = $data_api['type'];
+                            $source = $data_api['source'];
+                            $status = $data_api['status'];
+                            $data['body']['contents'][0]['text'] = "Title: ".$title;
+                            $data['body']['contents'][1]['text'] = "Type: ".$type;
+                            $data['body']['contents'][2]['text'] = "Source: ".$source;
+                            $data['body']['contents'][3]['text'] = "Status: ".$status;
+                            $newflex = json_encode($data);
+                            file_put_contents("carousel_detail_anime.json",$newflex);
+                            $flex_template2 = file_get_contents("carousel_detail_anime.json",true);
                             $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                                 'replyToken' => $event['replyToken'],
                                 'messages'   => [
                                     [
                                         'type'     => 'flex',
                                         'altText'  => 'Test Flex Message',
-                                        'contents' => json_decode($flex_template)
+                                        'contents' => json_decode($flex_template2)
                                     ]
                                 ],
                             ]);
