@@ -95,6 +95,45 @@
                 }
               ]
             }
+        },
+        {
+          "type": "bubble",
+          "styles":{
+              "header":{
+                  "backgroundColor":"#2E51A2"
+              },
+              "footer":{
+                  "backgroundColor":"#2E51A2"
+              }
+          },
+          "direction": "ltr",
+          "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Synopsis",
+                "size": "md",
+                "align": "center",
+                "weight": "bold",
+                "color": "#FFFFFF"
+              }
+            ]
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Synopsis",
+                "size": "xs",
+                "align": "start",
+                "wrap": true
+              }
+            ]
+          }
         }
     ]
 }
