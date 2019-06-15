@@ -1,4 +1,13 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
+use \LINE\LINEBot;
+use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use \LINE\LINEBot\MessageBuilder\MultiMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
+use \LINE\LINEBot\SignatureValidator as SignatureValidator;
+
 function replyone($input, $text, $httpClient, $bot, $event)
 {
     if (strpos($input, 'anime') !== false) {
