@@ -1,5 +1,5 @@
 <?php
-function replyone($input, $text)
+function replyone($input, $text, $httpClient, $bot, $event)
 {
     if (strpos($input, 'anime') !== false) {
         if ($text[0] == "anime") {

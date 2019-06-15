@@ -69,7 +69,7 @@ $app->post('/webhook', function ($request, $response) use ($bot, $httpClient, $p
                         $input = strtolower($event['postback']['data']);
                     }
                     $text = explode(":", $input);
-                    $result = replyone($input, $text);
+                    $result = replyone($input, $text, $httpClient, $bot, $event);
                     // or we can use replyMessage() instead to send reply message
                     // $textMessageBuilder = new TextMessageBuilder($event['message']['text']);
                     // $result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
