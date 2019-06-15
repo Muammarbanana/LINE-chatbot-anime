@@ -74,13 +74,13 @@ function replyone($input, $text, $httpClient, $bot, $event)
                 $data_video = file_get_contents("text_trailer.json");
                 $data_teks = json_decode($data_video, true);
                 $data_teks['text'] = $video;
-                array_push($data['contents'][4]['body']['contents'], $data_teks);
+                array($data['contents'][4]['body']['contents'], $data_teks);
             } else {
                 $video = $data_api['trailer_url'];
                 $data_video = file_get_contents("tombol_trailer.json");
                 $data_video2 = json_decode($data_video);
                 $data_video2['action']['uri'] = $video;
-                array_push($data['contents'][4]['body']['contents'], $data_video2);
+                array($data['contents'][4]['body']['contents'], $data_video2);
             }
             $data['contents'][0]['body']['contents'][0]['text'] = "Title: " . $title;
             $data['contents'][0]['body']['contents'][1]['text'] = "Type: " . $type;
