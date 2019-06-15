@@ -79,7 +79,7 @@ function replyone($input, $text, $httpClient, $bot, $event)
             } else {
                 $video = $data_api['trailer_url'];
                 $data_video = file_get_contents("tombol_trailer.json");
-                $data_video2 = json_decode($data_video);
+                $data_video2 = json_decode($data_video, true);
                 $data_video2['action']['uri'] = $video;
                 array_pop($data['contents'][4]['body']['contents']);
                 array_push($data['contents'][4]['body']['contents'], $data_video2);
