@@ -249,16 +249,7 @@
             "type": "box",
             "layout": "vertical",
             "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "Open Trailer",
-                  "uri": "https://linecorp.com"
-                },
-                "color": "#2E51A2",
-                "style": "primary"
-              }
+              
             ]
           }
         }

@@ -71,8 +71,16 @@ function replyone($input, $text, $httpClient, $bot, $event)
             }
             if ($data_api['trailer_url'] == NULL) {
                 $video = "There is no trailer yet";
+                $data_video = file_get_contents("text_trailer.json");
+                $data_teks = json_decode($data_video, true);
+                $data_teks['text'] = $video;
+                array_push($data['contents'][4]['body']['contents'][0], $data_teks);
             } else {
                 $video = $data_api['trailer_url'];
+                $data_video = file_get_contents("tombol_trailer.json");
+                $data_video2 = json_decode($data_video);
+                $data_video2['action']['uri'] = $video;
+                array_push($data['contents'][4]['body']['contents'][0], $data_teks);
             }
             $data['contents'][0]['body']['contents'][0]['text'] = "Title: " . $title;
             $data['contents'][0]['body']['contents'][1]['text'] = "Type: " . $type;
@@ -87,7 +95,7 @@ function replyone($input, $text, $httpClient, $bot, $event)
             $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;
             $data['contents'][2]['body']['contents'][0]['text'] = $opening;
             $data['contents'][3]['body']['contents'][0]['text'] = $ending;
-            $data['contents'][4]['body']['contents'][0]['action']['uri'] = $video;
+            //$data['contents'][4]['body']['contents'][0]['action']['uri'] = $video;
             $newflex = json_encode($data);
             file_put_contents("carousel_detail_anime.json", $newflex);
             $flex_template2 = file_get_contents("carousel_detail_anime.json");
