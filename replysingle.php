@@ -145,9 +145,9 @@ function replyone($input, $text, $httpClient, $bot, $event)
             $newflex = json_encode($data_carousel);
             file_put_contents("carousel_hasil_search2.json", $newflex);
             $flex_template2 = file_get_contents("carousel_hasil_search2.json");
-            if(count((array)$data_api['results']) == 0){
+            if (count((array)$data_api['results']) == 0) {
                 $result = $bot->replyText($event['replyToken'], 'Hasil tidak ditemukan');
-            }else{
+            } else {
                 $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                     'replyToken' => $event['replyToken'],
                     'messages'   => [
