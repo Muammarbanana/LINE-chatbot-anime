@@ -113,7 +113,7 @@ function anime($text, $bot, $httpClient, $event)
         file_put_contents("carousel_detail_anime.json", $newflex);
         $flex_template2 = file_get_contents("carousel_detail_anime.json");
         if ($api === FALSE) {
-            $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+            $result = $bot->replyText($event['replyToken'], 'Anime tidak ditemukan');
         } else {
             $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                 'replyToken' => $event['replyToken'],
