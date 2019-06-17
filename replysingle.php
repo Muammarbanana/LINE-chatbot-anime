@@ -112,16 +112,20 @@ function anime($text, $bot, $httpClient, $event)
         $newflex = json_encode($data);
         file_put_contents("carousel_detail_anime.json", $newflex);
         $flex_template2 = file_get_contents("carousel_detail_anime.json");
-        $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
-            'replyToken' => $event['replyToken'],
-            'messages'   => [
-                [
-                    'type'     => 'flex',
-                    'altText'  => 'Detail Anime',
-                    'contents' => json_decode($flex_template2)
-                ]
-            ],
-        ]);
+        if ($data_api['error'] != NULL) {
+            $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+        } else {
+            $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
+                'replyToken' => $event['replyToken'],
+                'messages'   => [
+                    [
+                        'type'     => 'flex',
+                        'altText'  => 'Detail Anime',
+                        'contents' => json_decode($flex_template2)
+                    ]
+                ],
+            ]);
+        }
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
     }
