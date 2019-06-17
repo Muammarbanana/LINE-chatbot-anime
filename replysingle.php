@@ -14,25 +14,14 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = anime($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'search') !== false) {
         $result = search($text, $bot, $httpClient, $event);
-    } elseif (strpos($input, 'cek') !== false) {
-        $flex_template = file_get_contents("carousel_detail_anime.json");
-        $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
-            'replyToken' => $event['replyToken'],
-            'messages'   => [
-                [
-                    'type'     => 'flex',
-                    'altText'  => 'Test Flex Message',
-                    'contents' => json_decode($flex_template)
-                ]
-            ],
-        ]);
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
     }
     return $result;
 }
 
-function anime($text, $bot, $httpClient, $event){
+function anime($text, $bot, $httpClient, $event)
+{
     if ($text[0] == "anime") {
         $flex_template = file_get_contents("carousel_detail_anime.json");
         $data = json_decode($flex_template, true);
@@ -139,7 +128,8 @@ function anime($text, $bot, $httpClient, $event){
     return $result;
 }
 
-function search($text, $bot, $httpClient, $event){
+function search($text, $bot, $httpClient, $event)
+{
     if ($text[0] == "search") {
         //get from api
         //edit json
