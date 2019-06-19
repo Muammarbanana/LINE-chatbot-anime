@@ -213,7 +213,7 @@ function topanime($text, $bot, $httpClient, $event)
     if ($text[0] == "top anime"){
         $result = $bot->replyText($event['replyToken'], 'Masuk top anime');
     } else {
-        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan');
     }
     return $result;
 }
