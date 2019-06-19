@@ -1,64 +1,261 @@
 {
-"type": "bubble",
-    "direction": "ltr",
-    "header": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
+    "type": "carousel",
+    "contents": [
         {
-          "type": "text",
-          "text": "Anime Search",
-          "align": "center",
-          "weight": "bold",
-          "color": "#FFFFFF"
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Anime Search",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Write like this",
+                        "align": "center"
+                    },
+                    {
+                        "type": "text",
+                        "text": "'Search: Anime Title'",
+                        "align": "center"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "horizontal",
+                "margin": "xxl",
+                "contents": [
+                    {
+                        "type": "spacer"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Example:",
+                        "align": "start",
+                        "gravity": "center",
+                        "color": "#8A7F7F"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Search: Naruto",
+                        "margin": "xl",
+                        "align": "end"
+                    },
+                    {
+                        "type": "spacer"
+                    }
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Top Anime",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Write like this",
+                        "align": "center"
+                    },
+                    {
+                        "type": "text",
+                        "text": "'Top Anime'",
+                        "align": "center"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "horizontal",
+                "margin": "xxl",
+                "contents": [
+                    {
+                        "type": "spacer"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Example:",
+                        "align": "start",
+                        "gravity": "center",
+                        "color": "#8A7F7F"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Top Anime",
+                        "margin": "xl",
+                        "align": "end"
+                    },
+                    {
+                        "type": "spacer"
+                    }
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Top Airing Anime",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Write like this",
+                        "align": "center"
+                    },
+                    {
+                        "type": "text",
+                        "text": "'Top Airing Anime'",
+                        "align": "center"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "horizontal",
+                "margin": "xxl",
+                "contents": [
+                    {
+                        "type": "spacer"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Example:",
+                        "align": "start",
+                        "gravity": "center",
+                        "color": "#8A7F7F"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Top Airing Anime",
+                        "margin": "xl",
+                        "align": "end"
+                    },
+                    {
+                        "type": "spacer"
+                    }
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Anime Schedule",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Write like this",
+                        "align": "center"
+                    },
+                    {
+                        "type": "text",
+                        "text": "'Anime Schedule'",
+                        "align": "center"
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "horizontal",
+                "margin": "xxl",
+                "contents": [
+                    {
+                        "type": "spacer"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Example:",
+                        "align": "start",
+                        "gravity": "center",
+                        "color": "#8A7F7F"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Anime Schedule",
+                        "margin": "xl",
+                        "align": "end"
+                    },
+                    {
+                        "type": "spacer"
+                    }
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
         }
-      ]
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "Langsung ketik seperti ini saja ya",
-          "align": "center"
-        },
-        {
-          "type": "text",
-          "text": "'Search: Judul Anime'",
-          "align": "center"
-        }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "horizontal",
-      "margin": "xxl",
-      "contents": [
-        {
-          "type": "spacer"
-        },
-        {
-          "type": "text",
-          "text": "Contoh:",
-          "align": "start",
-          "gravity": "center",
-          "color": "#8A7F7F"
-        },
-        {
-          "type": "text",
-          "text": "Search: Naruto",
-          "margin": "xl",
-          "align": "end"
-        },
-        {
-          "type": "spacer"
-        }
-      ]
-    },
-    "styles": {
-      "header": {
-        "backgroundColor": "#2E51A2"
-      }
-    }
+    ]
 }
