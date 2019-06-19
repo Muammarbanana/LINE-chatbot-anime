@@ -14,6 +14,8 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = anime($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'search') !== false) {
         $result = search($text, $bot, $httpClient, $event);
+    } elseif (strpos($input, 'menu') !== false){
+
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
     }
@@ -54,7 +56,7 @@ function anime($text, $bot, $httpClient, $event)
         }
         $genre = substr($genre, 2);
         if (count((array)$data_api['opening_themes']) == 0) {
-            $opening = "There is no opening theme yet";
+            $opening = "There is no opening theme";
         } else {
             foreach ($data_api['opening_themes'] as $key) {
                 $opening .= "\n" . $key;
@@ -62,7 +64,7 @@ function anime($text, $bot, $httpClient, $event)
             $opening = substr($opening, 1);
         }
         if (count((array)$data_api['ending_themes']) == 0) {
-            $ending = "There is no ending theme yet";
+            $ending = "There is no ending theme";
         } else {
             foreach ($data_api['ending_themes'] as $key) {
                 $ending .= "\n" . $key;
@@ -76,12 +78,12 @@ function anime($text, $bot, $httpClient, $event)
             $rating = $data_api['rating'];
         }
         if ($data_api['synopsis'] == NULL) {
-            $sinopsis = "There is no synopsis yet";
+            $sinopsis = "There is no synopsis";
         } else {
             $sinopsis = $data_api['synopsis'];
         }
         if ($data_api['trailer_url'] == NULL) {
-            $video = "There is no trailer yet";
+            $video = "There is no trailer";
             $data_video = file_get_contents("text_trailer.json");
             $data_teks = json_decode($data_video, true);
             $data_teks['text'] = $video;
@@ -178,6 +180,26 @@ function search($text, $bot, $httpClient, $event)
                 ],
             ]);
         }
+    } else {
+        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+    }
+    return $result;
+}
+
+function menu($text, $bot, $httpClient, $event)
+{
+    if($text[0] == "menu"){
+        $flex_template = file_get_contents("carousel_menu.json");
+        $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
+            'replyToken' => $event['replyToken'],
+            'messages'   => [
+                [
+                    'type'     => 'flex',
+                    'altText'  => 'Search Result',
+                    'contents' => json_decode($flex_template)
+                ]
+            ],
+        ]);
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
     }

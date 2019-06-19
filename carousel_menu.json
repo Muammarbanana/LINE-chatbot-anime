@@ -1,0 +1,69 @@
+{
+"type": "bubble",
+    "direction": "ltr",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Anime Search",
+          "align": "center",
+          "weight": "bold",
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Langsung ketik seperti ini saja ya",
+          "align": "center"
+        },
+        {
+          "type": "text",
+          "text": "'Search: Judul Anime'",
+          "align": "center"
+        },
+        {
+          "type": "separator",
+          "margin": "xl",
+          "color": "#8A7F7F"
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "margin": "xxl",
+      "contents": [
+        {
+          "type": "spacer"
+        },
+        {
+          "type": "text",
+          "text": "Contoh:",
+          "align": "start",
+          "gravity": "center",
+          "color": "#8A7F7F"
+        },
+        {
+          "type": "text",
+          "text": "Search: Naruto",
+          "margin": "xl",
+          "align": "end"
+        },
+        {
+          "type": "spacer"
+        }
+      ]
+    },
+    "styles": {
+      "header": {
+        "backgroundColor": "#2E51A2"
+      }
+    }
+}
