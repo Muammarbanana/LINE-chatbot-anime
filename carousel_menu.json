@@ -28,11 +28,6 @@
           "text": "'Search: Judul Anime'",
           "align": "center"
         },
-        {
-          "type": "separator",
-          "margin": "xl",
-          "color": "#8A7F7F"
-        }
       ]
     },
     "footer": {
