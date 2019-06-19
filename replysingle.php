@@ -16,7 +16,7 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = search($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'menu') !== false) {
         $result = menu($text, $bot, $httpClient, $event);
-    } elseif (strpos($input, 'anime') !== false){
+    } elseif (strpos($input, 'anime') !== false) {
         $result = anime($text, $bot, $httpClient, $event);
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
@@ -209,8 +209,8 @@ function menu($text, $bot, $httpClient, $event)
 }
 
 function topanime($text, $bot, $httpClient, $event)
-{ 
-    if ($text[0] == "top anime"){
+{
+    if ($text[0] == "top anime") {
         //get from api
         //edit json
         $flex_template = file_get_contents("carousel_hasil_search.json");
@@ -219,7 +219,7 @@ function topanime($text, $bot, $httpClient, $event)
         $data_carousel = json_decode($flex_template, true);
         $api = file_get_contents("https://api.jikan.moe/v3/top/anime");
         $data_api = json_decode($api, true);
-        foreach ($data_api['top'] as $key) {
+        foreach (array_slice($data_api['top'], 0, 3) as $key) {
             $id = $key['mal_id'];
             $judul = $key['title'];
             $gambar = $key['image_url'];
