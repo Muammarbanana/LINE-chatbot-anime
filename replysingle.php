@@ -263,6 +263,7 @@ function schedule($text, $bot, $httpClient, $event){
             }
             $list_anime = substr($list_anime, 1);
             $data_carousel['contents'][$i]['body']['contents'][0]['text'] = $list_anime;
+            $list_anime = "";
             $i = $i+1;
         }
         $newflex = json_encode($data_carousel);
