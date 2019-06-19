@@ -265,13 +265,16 @@ function schedule($text, $bot, $httpClient, $event){
             $data_carousel['contents'][$i]['body']['contents'][0]['text'] = $list_anime;
             $i = $i+1;
         }
+        $newflex = json_encode($data_carousel);
+        file_put_contents("schedule.json", $newflex);
+        $data_carousel = file_get_contents("schedule.json");
         $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
             'replyToken' => $event['replyToken'],
             'messages'   => [
                 [
                     'type'     => 'flex',
                     'altText'  => 'Best Anime',
-                    'contents' => $data_carousel
+                    'contents' => json_decode($data_carousel)
                 ]
             ],
         ]);
