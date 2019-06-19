@@ -16,6 +16,8 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = search($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'menu') !== false) {
         $result = menu($text, $bot, $httpClient, $event);
+    } elseif (strpos($input, 'top anime') != false){
+        $result = topanime($text, $bot, $httpClient, $event);
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
     }
