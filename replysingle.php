@@ -211,7 +211,41 @@ function menu($text, $bot, $httpClient, $event)
 function topanime($text, $bot, $httpClient, $event)
 { 
     if ($text[0] == "top anime"){
-        $result = $bot->replyText($event['replyToken'], 'Masuk top anime');
+        //get from api
+        //edit json
+        $flex_template = file_get_contents("carousel_hasil_search.json");
+        $flex_anime = file_get_contents("anime_template.json");
+        $data = json_decode($flex_anime, true);
+        $data_carousel = json_decode($flex_template, true);
+        $query = urlencode($text[1]);
+        $api = file_get_contents("https://api.jikan.moe/v3/top/anime");
+        $data_api = json_decode($api, true);
+        foreach ($data_api['top'] as $key) {
+            $id = $key['mal_id'];
+            $judul = $key['title'];
+            $gambar = $key['image_url'];
+            $score = $key['score'];
+            $data['footer']['contents'][0]['action']['displayText'] = "Anime:" . $id;
+            $data['footer']['contents'][0]['action']['data'] = "Anime:" . $id;
+            $data['header']['contents'][0]['text'] = $judul;
+            $data['hero']['url'] = $gambar;
+            $data['body']['contents'][0]['text'] = $score;
+
+            array_push($data_carousel['contents'], $data);
+        }
+        $newflex = json_encode($data_carousel);
+        file_put_contents("carousel_hasil_search2.json", $newflex);
+        $flex_template2 = file_get_contents("carousel_hasil_search2.json");
+        $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
+            'replyToken' => $event['replyToken'],
+            'messages'   => [
+                [
+                    'type'     => 'flex',
+                    'altText'  => 'Search Result',
+                    'contents' => json_decode($flex_template2)
+                ]
+            ],
+        ]);
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan');
     }
