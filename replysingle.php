@@ -205,7 +205,7 @@ function menu($text, $bot, $httpClient, $event)
 
 function topanime($text, $bot, $httpClient, $event, $type)
 {
-    if ($text[0] == "top anime") {
+    if ($text[0] == "top anime" ||  $text[0] == "top airing anime") {
         //get from api
         //edit json
         $flex_template = file_get_contents("carousel_hasil_search.json");
