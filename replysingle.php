@@ -251,14 +251,27 @@ function topanime($text, $bot, $httpClient, $event, $type)
 
 function schedule($text, $bot, $httpClient, $event){
     if ($text[0] == 'anime schedule'){
-        $data_carousel = file_get_contents("schedule.json");
+        $schedule_template = file_get_contents("schedule.json");
+        $data_carousel = json_decode($schedule_template, true);
+        $api = file_get_contents("https://api.jikan.moe/v3/schedule");
+        $data_api = json_decode($api, true);
+        $i = 0;
+        $list_anime = "";
+        foreach (array_slice($data_api, 3, 9) as $key => $jsons) {
+            foreach($jsons as $key => $value){
+                $list_anime .= "\n" . $value['title'];
+            }
+            $list_anime = substr($list_anime, 1);
+            $data_carousel['contents'][$i]['body']['contents'][0]['text'] = $list_anime;
+            $i = $i+1;
+        }
         $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
             'replyToken' => $event['replyToken'],
             'messages'   => [
                 [
                     'type'     => 'flex',
                     'altText'  => 'Best Anime',
-                    'contents' => json_decode($data_carousel)
+                    'contents' => $data_carousel
                 ]
             ],
         ]);
