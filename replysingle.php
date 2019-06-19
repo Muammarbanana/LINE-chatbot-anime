@@ -233,8 +233,8 @@ function topanime($text, $bot, $httpClient, $event)
             array_push($data_carousel['contents'], $data);
         }
         $newflex = json_encode($data_carousel);
-        file_put_contents("carousel_hasil_search2.json", $newflex);
-        $flex_template2 = file_get_contents("carousel_hasil_search2.json");
+        file_put_contents("carousel_top_anime2.json", $newflex);
+        $flex_template2 = file_get_contents($newflex);
         $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
             'replyToken' => $event['replyToken'],
             'messages'   => [
