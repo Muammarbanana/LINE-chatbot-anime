@@ -223,7 +223,7 @@ function topanime($text, $bot, $httpClient, $event)
             $id = $key['mal_id'];
             $judul = $key['title'];
             $gambar = $key['image_url'];
-            $score = $key['score'];
+            $score = $key['type'];
             $data['footer']['contents'][0]['action']['displayText'] = "Anime:" . $id;
             $data['footer']['contents'][0]['action']['data'] = "Anime:" . $id;
             $data['header']['contents'][0]['text'] = $judul;
