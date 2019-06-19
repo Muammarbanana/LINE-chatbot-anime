@@ -24,8 +24,213 @@
                     {
                         "type": "text",
                         "text": "Anime list",
-                        "align": "left"
+                        "align": "start"
                     }
+
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Tuesday",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Anime List",
+                        "align": "start"
+                    }
+
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Wednesday",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Anime list",
+                        "align": "start"
+                    }
+
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Thursday",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Anime list",
+                        "align": "start"
+                    }
+
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Friday",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Anime list",
+                        "align": "start"
+                    }
+
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Saturday",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Anime list",
+                        "align": "start"
+                    }
+
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        },
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Sunday",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Anime list",
+                        "align": "start"
+                    }
+
                 ]
             },
             "styles": {
