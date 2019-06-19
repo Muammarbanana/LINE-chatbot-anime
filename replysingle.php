@@ -257,7 +257,7 @@ function schedule($text, $bot, $httpClient, $event){
         $data_api = json_decode($api, true);
         $i = 0;
         $list_anime = "";
-        foreach (array_slice($data_api, 3, 9) as $key => $jsons) {
+        foreach (array_slice(json_decode($api, true), 3, 9) as $key => $jsons) {
             foreach($jsons as $key => $value){
                 $list_anime .= "\n" . $value['title'];
             }
