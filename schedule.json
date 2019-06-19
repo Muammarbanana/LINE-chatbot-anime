@@ -33,39 +33,6 @@
                     "backgroundColor": "#2E51A2"
                 }
             }
-        },
-        {
-            "type": "bubble",
-            "direction": "ltr",
-            "header": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "text",
-                        "text": "Tuesday",
-                        "align": "center",
-                        "weight": "bold",
-                        "color": "#FFFFFF"
-                    }
-                ]
-            },
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "text",
-                        "text": "Anime list",
-                        "align": "left"
-                    }
-                ]
-            },
-            "styles": {
-                "header": {
-                    "backgroundColor": "#2E51A2"
-                }
-            }
         }
     ]
 }
