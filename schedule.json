@@ -1,0 +1,43 @@
+{
+    "type": "carousel",
+    "contents": [
+        {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Monday",
+                        "align": "center",
+                        "weight": "bold",
+                        "color": "#FFFFFF"
+                    }
+                ]
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Write like this",
+                        "align": "center"
+                    },
+                    {
+                        "type": "text",
+                        "text": "'Search: Anime Title'",
+                        "align": "center"
+                    }
+                ]
+            },
+            "styles": {
+                "header": {
+                    "backgroundColor": "#2E51A2"
+                }
+            }
+        }
+    ]
+}

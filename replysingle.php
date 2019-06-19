@@ -20,6 +20,8 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = menu($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'anime') !== false) {
         $result = anime($text, $bot, $httpClient, $event);
+    } elseif (strpos($input, 'anime schedule') !== false){
+        $result = schedule($text, $bot, $httpClient, $event);
     } else {
         $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
     }
@@ -115,7 +117,7 @@ function anime($text, $bot, $httpClient, $event)
         $data['contents'][2]['body']['contents'][0]['text'] = $opening;
         $data['contents'][3]['body']['contents'][0]['text'] = $ending;
         if ($api === FALSE) {
-            $result = $bot->replyText($event['replyToken'], 'Anime tidak ditemukan');
+            $result = $bot->replyText($event['replyToken'], 'Anime not found');
         } else {
             $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                 'replyToken' => $event['replyToken'],
@@ -129,7 +131,7 @@ function anime($text, $bot, $httpClient, $event)
             ]);
         }
     } else {
-        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
     }
     return $result;
 }
@@ -164,7 +166,7 @@ function search($text, $bot, $httpClient, $event)
             array_push($data_carousel['contents'], $data);
         }
         if (count((array)$data_api['results']) == 0) {
-            $result = $bot->replyText($event['replyToken'], 'Hasil tidak ditemukan');
+            $result = $bot->replyText($event['replyToken'], 'Result not found, try another keyword');
         } else {
             $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
                 'replyToken' => $event['replyToken'],
@@ -178,7 +180,7 @@ function search($text, $bot, $httpClient, $event)
             ]);
         }
     } else {
-        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
     }
     return $result;
 }
@@ -192,7 +194,7 @@ function menu($text, $bot, $httpClient, $event)
             'messages'   => [
                 [
                     'type'     => 'flex',
-                    'altText'  => 'Search Result',
+                    'altText'  => 'Menu',
                     'contents' => json_decode($flex_template)
                 ]
             ],
@@ -236,13 +238,32 @@ function topanime($text, $bot, $httpClient, $event, $type)
             'messages'   => [
                 [
                     'type'     => 'flex',
-                    'altText'  => 'Search Result',
+                    'altText'  => 'Best Anime',
                     'contents' => $data_carousel
                 ]
             ],
         ]);
     } else {
-        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
+    }
+    return $result;
+}
+
+function schedule($text, $bot, $httpClient, $event){
+    if ($text[0] == 'anime schedule'){
+        $data_carousel = file_get_contents("schedule.json");
+        $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
+            'replyToken' => $event['replyToken'],
+            'messages'   => [
+                [
+                    'type'     => 'flex',
+                    'altText'  => 'Best Anime',
+                    'contents' => json_decode($data_carousel)
+                ]
+            ],
+        ]);
+    } else {
+        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
     }
     return $result;
 }
