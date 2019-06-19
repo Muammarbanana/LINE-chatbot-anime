@@ -11,7 +11,9 @@ use \LINE\LINEBot\SignatureValidator as SignatureValidator;
 function replyone($input, $text, $httpClient, $bot, $event)
 {
     if (strpos($input, 'top anime') !== false) {
-        $result = topanime($text, $bot, $httpClient, $event);
+        $result = topanime($text, $bot, $httpClient, $event, "best");
+    } elseif (strpos($input, 'top airing anime') !== false){
+        $result = topanime($text, $bot, $httpClient, $event, "airing");
     } elseif (strpos($input, 'search') !== false) {
         $result = search($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'menu') !== false) {
@@ -201,7 +203,7 @@ function menu($text, $bot, $httpClient, $event)
     return $result;
 }
 
-function topanime($text, $bot, $httpClient, $event)
+function topanime($text, $bot, $httpClient, $event, $type)
 {
     if ($text[0] == "top anime") {
         //get from api
@@ -210,7 +212,11 @@ function topanime($text, $bot, $httpClient, $event)
         $flex_anime = file_get_contents("anime_template.json");
         $data = json_decode($flex_anime, true);
         $data_carousel = json_decode($flex_template, true);
-        $api = file_get_contents("https://api.jikan.moe/v3/top/anime");
+        if($type == "best"){
+            $api = file_get_contents("https://api.jikan.moe/v3/top/anime");
+        } else {
+            $api = file_get_contents("https://api.jikan.moe/v3/top/anime/1/airing");
+        }
         $data_api = json_decode($api, true);
         foreach (array_slice($data_api['top'], 0, 10) as $key) {
             $id = $key['mal_id'];
