@@ -14,7 +14,7 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = anime($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'search') !== false) {
         $result = search($text, $bot, $httpClient, $event);
-    } elseif (strpos($input, 'menu') !== false){
+    } elseif (strpos($input, 'menu') !== false) {
         $result = menu($text, $bot, $httpClient, $event);
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
@@ -188,7 +188,7 @@ function search($text, $bot, $httpClient, $event)
 
 function menu($text, $bot, $httpClient, $event)
 {
-    if($text[0] == "menu"){
+    if ($text[0] == "menu") {
         $flex_template = file_get_contents("carousel_menu.json");
         $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
             'replyToken' => $event['replyToken'],
@@ -200,6 +200,16 @@ function menu($text, $bot, $httpClient, $event)
                 ]
             ],
         ]);
+    } else {
+        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+    }
+    return $result;
+}
+
+function topanime($text, $bot, $httpClient, $event)
+{ 
+    if ($text[0] == "top anime"){
+        $result = $bot->replyText($event['replyToken'], 'Masuk top anime');
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
     }
