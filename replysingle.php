@@ -10,14 +10,14 @@ use \LINE\LINEBot\SignatureValidator as SignatureValidator;
 
 function replyone($input, $text, $httpClient, $bot, $event)
 {
-    if (strpos($input, 'anime') !== false) {
-        $result = anime($text, $bot, $httpClient, $event);
+    if (strpos($input, 'top anime') !== false) {
+        $result = topanime($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'search') !== false) {
         $result = search($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'menu') !== false) {
         $result = menu($text, $bot, $httpClient, $event);
-    } elseif (strpos($input, 'topanime') !== false){
-        $result = topanime($text, $bot, $httpClient, $event);
+    } elseif (strpos($input, 'anime') !== false){
+        $result = anime($text, $bot, $httpClient, $event);
     } else {
         $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
     }
