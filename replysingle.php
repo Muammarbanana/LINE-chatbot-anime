@@ -234,14 +234,14 @@ function topanime($text, $bot, $httpClient, $event)
         }
         $newflex = json_encode($data_carousel);
         file_put_contents("carousel_top_anime2.json", $newflex);
-        $flex_template2 = file_get_contents($newflex);
+        $flex_template2 = file_get_contents("carousel_top_anime2.json");
         $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
             'replyToken' => $event['replyToken'],
             'messages'   => [
                 [
                     'type'     => 'flex',
                     'altText'  => 'Search Result',
-                    'contents' => json_decode($flex_template2)
+                    'contents' => $data_carousel
                 ]
             ],
         ]);
