@@ -18,10 +18,10 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = search($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'menu') !== false) {
         $result = menu($text, $bot, $httpClient, $event);
-    } elseif (strpos($input, 'anime') !== false) {
-        $result = anime($text, $bot, $httpClient, $event);
-    } elseif (strpos($input, 'anime schedule') !== false){
+    } elseif (strpos($input, 'anime schedule') !== false) {
         $result = schedule($text, $bot, $httpClient, $event);
+    } elseif (strpos($input, 'anime') !== false){
+        $result = anime($text, $bot, $httpClient, $event);
     } else {
         $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
     }
