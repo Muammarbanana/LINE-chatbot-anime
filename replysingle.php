@@ -112,10 +112,6 @@ function anime($text, $bot, $httpClient, $event)
         $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;
         $data['contents'][2]['body']['contents'][0]['text'] = $opening;
         $data['contents'][3]['body']['contents'][0]['text'] = $ending;
-        //$data['contents'][4]['body']['contents'][0]['action']['uri'] = $video;
-        $newflex = json_encode($data);
-        file_put_contents("carousel_detail_anime.json", $newflex);
-        $flex_template2 = file_get_contents("carousel_detail_anime.json");
         if ($api === FALSE) {
             $result = $bot->replyText($event['replyToken'], 'Anime tidak ditemukan');
         } else {
@@ -125,7 +121,7 @@ function anime($text, $bot, $httpClient, $event)
                     [
                         'type'     => 'flex',
                         'altText'  => 'Detail Anime',
-                        'contents' => json_decode($flex_template2)
+                        'contents' => $data
                     ]
                 ],
             ]);
@@ -165,9 +161,6 @@ function search($text, $bot, $httpClient, $event)
 
             array_push($data_carousel['contents'], $data);
         }
-        $newflex = json_encode($data_carousel);
-        file_put_contents("carousel_hasil_search2.json", $newflex);
-        $flex_template2 = file_get_contents("carousel_hasil_search2.json");
         if (count((array)$data_api['results']) == 0) {
             $result = $bot->replyText($event['replyToken'], 'Hasil tidak ditemukan');
         } else {
@@ -177,7 +170,7 @@ function search($text, $bot, $httpClient, $event)
                     [
                         'type'     => 'flex',
                         'altText'  => 'Search Result',
-                        'contents' => json_decode($flex_template2)
+                        'contents' => $data_carousel
                     ]
                 ],
             ]);
