@@ -217,7 +217,6 @@ function topanime($text, $bot, $httpClient, $event)
         $flex_anime = file_get_contents("anime_template.json");
         $data = json_decode($flex_anime, true);
         $data_carousel = json_decode($flex_template, true);
-        $query = urlencode($text[1]);
         $api = file_get_contents("https://api.jikan.moe/v3/top/anime");
         $data_api = json_decode($api, true);
         foreach ($data_api['top'] as $key) {
