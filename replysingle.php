@@ -19,7 +19,7 @@ function replyone($input, $text, $httpClient, $bot, $event)
     } elseif (strpos($input, 'anime') !== false) {
         $result = anime($text, $bot, $httpClient, $event);
     } else {
-        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
+        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
     }
     return $result;
 }
@@ -216,12 +216,12 @@ function topanime($text, $bot, $httpClient, $event)
             $id = $key['mal_id'];
             $judul = $key['title'];
             $gambar = $key['image_url'];
-            $score = $key['type'];
+            $konten = "Rank: " . $key['rank'] . "\nType: " . $key['type'] . "\nEpisodes: " . $key['episodes'] . "\nStart Date: " . $key['start_date'] . "\nEnd Date: " . $key['end_date'] . "\nScore: " . $key['score'];
             $data['footer']['contents'][0]['action']['displayText'] = "Anime:" . $id;
             $data['footer']['contents'][0]['action']['data'] = "Anime:" . $id;
             $data['header']['contents'][0]['text'] = $judul;
             $data['hero']['url'] = $gambar;
-            $data['body']['contents'][0]['text'] = $score;
+            $data['body']['contents'][0]['text'] = $konten;
 
             array_push($data_carousel['contents'], $data);
         }
@@ -236,7 +236,7 @@ function topanime($text, $bot, $httpClient, $event)
             ],
         ]);
     } else {
-        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan');
+        $result = $bot->replyText($event['replyToken'], 'Pesan yang dikirimkan salah');
     }
     return $result;
 }
