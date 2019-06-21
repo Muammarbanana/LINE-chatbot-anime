@@ -68,8 +68,12 @@ $app->post('/webhook', function ($request, $response) use ($bot, $httpClient, $p
                     } elseif ($event['type'] == 'postback') {
                         $input = strtolower($event['postback']['data']);
                     }
-                    $text = explode(":", $input);
-                    $result = replyone($input, $text, $httpClient, $bot, $event);
+                    if (strpos($input, 'search:') || strpos($input, 'anime:')){
+                        $text = explode(":", $input);
+                        $result = replyone($input, $text, $httpClient, $bot, $event);
+                    } else {
+                        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
+                    }
                     // or we can use replyMessage() instead to send reply message
                     // $textMessageBuilder = new TextMessageBuilder($event['message']['text']);
                     // $result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
