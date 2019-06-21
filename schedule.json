@@ -24,7 +24,9 @@
                     {
                         "type": "text",
                         "text": "Anime list",
-                        "align": "start"
+                        "size": "xs",
+                        "align": "start",
+                        "wrap": true
                     }
 
                 ]
@@ -58,7 +60,9 @@
                     {
                         "type": "text",
                         "text": "Anime List",
-                        "align": "start"
+                        "size": "xs",
+                        "align": "start",
+                        "wrap": true
                     }
 
                 ]
@@ -92,7 +96,9 @@
                     {
                         "type": "text",
                         "text": "Anime list",
-                        "align": "start"
+                        "size": "xs",
+                        "align": "start",
+                        "wrap": true
                     }
 
                 ]
@@ -126,7 +132,9 @@
                     {
                         "type": "text",
                         "text": "Anime list",
-                        "align": "start"
+                        "size": "xs",
+                        "align": "start",
+                        "wrap": true
                     }
 
                 ]
@@ -160,7 +168,9 @@
                     {
                         "type": "text",
                         "text": "Anime list",
-                        "align": "start"
+                        "size": "xs",
+                        "align": "start",
+                        "wrap": true
                     }
 
                 ]
@@ -194,7 +204,9 @@
                     {
                         "type": "text",
                         "text": "Anime list",
-                        "align": "start"
+                        "size": "xs",
+                        "align": "start",
+                        "wrap": true
                     }
 
                 ]
@@ -228,7 +240,9 @@
                     {
                         "type": "text",
                         "text": "Anime list",
-                        "align": "start"
+                        "size": "xs",
+                        "align": "start",
+                        "wrap": true
                     }
 
                 ]
