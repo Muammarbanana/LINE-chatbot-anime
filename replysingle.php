@@ -267,8 +267,8 @@ function schedule($text, $bot, $httpClient, $event){
             $i = $i+1;
         }
         $newflex = json_encode($data_carousel);
-        file_put_contents("schedule.json", $newflex);
-        $data_carousel = file_get_contents("schedule.json");
+        file_put_contents("schedule2.json", $newflex);
+        $data_carousel = file_get_contents("schedule2.json");
         $result = $httpClient->post(LINEBot::DEFAULT_ENDPOINT_BASE . '/v2/bot/message/reply', [
             'replyToken' => $event['replyToken'],
             'messages'   => [
