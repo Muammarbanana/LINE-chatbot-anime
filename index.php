@@ -66,12 +66,8 @@ $app->post('/webhook', function ($request, $response) use ($bot, $httpClient, $p
                     } elseif ($event['type'] == 'postback') {
                         $input = strtolower($event['postback']['data']);
                     }
-                    if (strpos($input, 'search:') !== false || strpos($input, 'anime:') !== false){
-                        $text = explode(":", $input);
-                        $result = replyone($input, $text, $httpClient, $bot, $event);
-                    } else {
-                        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
-                    }             
+                    $text = explode(":", $input);
+                    $result = replyone($input, $text, $httpClient, $bot, $event);             
                 } else {
                     //message from single user
                     if ($event['type'] == 'message') {
@@ -79,12 +75,8 @@ $app->post('/webhook', function ($request, $response) use ($bot, $httpClient, $p
                     } elseif ($event['type'] == 'postback') {
                         $input = strtolower($event['postback']['data']);
                     }
-                    if (strpos($input, 'search:') !== false || strpos($input, 'anime:') !== false){
-                        $text = explode(":", $input);
-                        $result = replyone($input, $text, $httpClient, $bot, $event);
-                    } else {
-                        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
-                    }
+                    $text = explode(":", $input);
+                    $result = replyone($input, $text, $httpClient, $bot, $event);
                     // or we can use replyMessage() instead to send reply message
                     // $textMessageBuilder = new TextMessageBuilder($event['message']['text']);
                     // $result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
