@@ -15,7 +15,8 @@
             "text": "Judul",
             "size": "md",
             "align": "center",
-            "weight": "bold"
+            "weight": "bold",
+            "wrap": true
           }
         ]
       },

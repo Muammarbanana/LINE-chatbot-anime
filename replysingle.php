@@ -12,7 +12,7 @@ function replyone($input, $text, $httpClient, $bot, $event)
 {
     if (strpos($input, 'top anime') !== false) {
         $result = topanime($text, $bot, $httpClient, $event, "best");
-    } elseif (strpos($input, 'top airing anime') !== false){
+    } elseif (strpos($input, 'top airing anime') !== false) {
         $result = topanime($text, $bot, $httpClient, $event, "airing");
     } elseif (strpos($input, 'search') !== false) {
         $result = search($text, $bot, $httpClient, $event);
@@ -20,7 +20,7 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = menu($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'anime schedule') !== false) {
         $result = schedule($text, $bot, $httpClient, $event);
-    } elseif (strpos($input, 'anime') !== false){
+    } elseif (strpos($input, 'anime') !== false) {
         $result = anime($text, $bot, $httpClient, $event);
     } else {
         $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
@@ -146,7 +146,7 @@ function search($text, $bot, $httpClient, $event)
         $data = json_decode($flex_anime, true);
         $data_carousel = json_decode($flex_template, true);
         $query = urlencode($text[1]);
-        $api = file_get_contents("https://api.jikan.moe/v3/search/anime?q=$query&limit=5");
+        $api = file_get_contents("https://api.jikan.moe/v3/search/anime?q=$query&limit=10");
         $data_api = json_decode($api, true);
         foreach ($data_api['results'] as $key) {
             $id = $key['mal_id'];
@@ -214,7 +214,7 @@ function topanime($text, $bot, $httpClient, $event, $type)
         $flex_anime = file_get_contents("anime_template.json");
         $data = json_decode($flex_anime, true);
         $data_carousel = json_decode($flex_template, true);
-        if($type == "best"){
+        if ($type == "best") {
             $api = file_get_contents("https://api.jikan.moe/v3/top/anime");
         } else {
             $api = file_get_contents("https://api.jikan.moe/v3/top/anime/1/airing");
@@ -249,8 +249,9 @@ function topanime($text, $bot, $httpClient, $event, $type)
     return $result;
 }
 
-function schedule($text, $bot, $httpClient, $event){
-    if ($text[0] == 'anime schedule'){
+function schedule($text, $bot, $httpClient, $event)
+{
+    if ($text[0] == 'anime schedule') {
         $schedule_template = file_get_contents("schedule.json");
         $data_carousel = json_decode($schedule_template, true);
         $api = file_get_contents("https://api.jikan.moe/v3/schedule");
@@ -258,13 +259,13 @@ function schedule($text, $bot, $httpClient, $event){
         $i = 0;
         $list_anime = "";
         foreach (array_slice(json_decode($api, true), 3, 7) as $key => $jsons) {
-            foreach($jsons as $key => $value){
+            foreach ($jsons as $key => $value) {
                 $list_anime .= "\n" . $value['title'];
             }
             $list_anime = substr($list_anime, 1);
             $data_carousel['contents'][$i]['body']['contents'][0]['text'] = $list_anime;
             $list_anime = "";
-            $i = $i+1;
+            $i = $i + 1;
         }
         $newflex = json_encode($data_carousel);
         file_put_contents("schedule2.json", $newflex);
