@@ -141,7 +141,8 @@
                         "text": "Top Airing Anime",
                         "align": "center",
                         "weight": "bold",
-                        "color": "#FFFFFF"
+                        "color": "#FFFFFF",
+                        "wrap": true
                     }
                 ]
             },
