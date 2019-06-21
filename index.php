@@ -60,7 +60,18 @@ $app->post('/webhook', function ($request, $response) use ($bot, $httpClient, $p
                     $event['source']['type'] == 'group' or
                     $event['source']['type'] == 'room'
                 ) {
-                    //message from group / room              
+                    //message from group / room 
+                    if ($event['type'] == 'message') {
+                        $input = strtolower($event['message']['text']);
+                    } elseif ($event['type'] == 'postback') {
+                        $input = strtolower($event['postback']['data']);
+                    }
+                    if (strpos($input, 'search:') !== false || strpos($input, 'anime:') !== false){
+                        $text = explode(":", $input);
+                        $result = replyone($input, $text, $httpClient, $bot, $event);
+                    } else {
+                        $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
+                    }             
                 } else {
                     //message from single user
                     if ($event['type'] == 'message') {
