@@ -30,7 +30,7 @@ function replyone($input, $text, $httpClient, $bot, $event)
 
 function anime($text, $bot, $httpClient, $event, $input)
 {
-    if (strpos($input, 'anime:') && $text[0] == "anime") {
+    if (strpos($input, 'anime:') !== false && $text[0] == "anime") {
         $flex_template = file_get_contents("carousel_detail_anime.json");
         $data = json_decode($flex_template, true);
         $api = file_get_contents("https://api.jikan.moe/v3/anime/" . $text[1]);
@@ -138,7 +138,7 @@ function anime($text, $bot, $httpClient, $event, $input)
 
 function search($text, $bot, $httpClient, $event, $input)
 {
-    if (strpos($input, 'search:') && $text[0] == "search") {
+    if (strpos($input, 'search:') !== false && $text[0] == "search") {
         //get from api
         //edit json
         $flex_template = file_get_contents("carousel_hasil_search.json");
