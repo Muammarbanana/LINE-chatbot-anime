@@ -15,22 +15,22 @@ function replyone($input, $text, $httpClient, $bot, $event)
     } elseif (strpos($input, 'top airing anime') !== false) {
         $result = topanime($text, $bot, $httpClient, $event, "airing");
     } elseif (strpos($input, 'search') !== false) {
-        $result = search($text, $bot, $httpClient, $event);
+        $result = search($text, $bot, $httpClient, $event, $input);
     } elseif (strpos($input, 'menu') !== false) {
         $result = menu($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'anime schedule') !== false) {
         $result = schedule($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'anime') !== false) {
-        $result = anime($text, $bot, $httpClient, $event);
+        $result = anime($text, $bot, $httpClient, $event, $input);
     } else {
         $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
     }
     return $result;
 }
 
-function anime($text, $bot, $httpClient, $event)
+function anime($text, $bot, $httpClient, $event, $input)
 {
-    if ($text[0] == "anime") {
+    if (strpos($input, 'anime:') && $text[0] == "anime") {
         $flex_template = file_get_contents("carousel_detail_anime.json");
         $data = json_decode($flex_template, true);
         $api = file_get_contents("https://api.jikan.moe/v3/anime/" . $text[1]);
@@ -136,9 +136,9 @@ function anime($text, $bot, $httpClient, $event)
     return $result;
 }
 
-function search($text, $bot, $httpClient, $event)
+function search($text, $bot, $httpClient, $event, $input)
 {
-    if ($text[0] == "search") {
+    if (strpos($input, 'search:') && $text[0] == "search") {
         //get from api
         //edit json
         $flex_template = file_get_contents("carousel_hasil_search.json");
