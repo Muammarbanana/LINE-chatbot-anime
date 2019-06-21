@@ -68,7 +68,7 @@ $app->post('/webhook', function ($request, $response) use ($bot, $httpClient, $p
                     } elseif ($event['type'] == 'postback') {
                         $input = strtolower($event['postback']['data']);
                     }
-                    if (strpos($input, 'search:') || strpos($input, 'anime:')){
+                    if (strpos($input, 'search:') !== false || strpos($input, 'anime:') !== false){
                         $text = explode(":", $input);
                         $result = replyone($input, $text, $httpClient, $bot, $event);
                     } else {
