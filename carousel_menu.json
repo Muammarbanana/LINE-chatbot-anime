@@ -157,8 +157,7 @@
                     {
                         "type": "text",
                         "text": "'Top Airing Anime'",
-                        "align": "center",
-                        "wrap": true
+                        "align": "center"
                     }
                 ]
             },
@@ -181,7 +180,8 @@
                         "type": "text",
                         "text": "Top Airing Anime",
                         "margin": "xl",
-                        "align": "end"
+                        "align": "end",
+                        "wrap": true
                     },
                     {
                         "type": "spacer"
