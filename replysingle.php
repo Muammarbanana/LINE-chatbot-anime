@@ -145,7 +145,7 @@ function search($text, $bot, $httpClient, $event, $input)
         $flex_anime = file_get_contents("anime_template.json");
         $data = json_decode($flex_anime, true);
         $data_carousel = json_decode($flex_template, true);
-        $query = $text[1];
+        $query = urlencode($text[1]);
         $api = file_get_contents("https://api.jikan.moe/v3/search/anime?q=$query&limit=10&genre=12&genre_exclude=0");
         $data_api = json_decode($api, true);
         foreach ($data_api['results'] as $key) {
