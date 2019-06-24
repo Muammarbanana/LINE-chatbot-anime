@@ -290,7 +290,7 @@ function schedule($text, $bot, $httpClient, $event)
             'messages'   => [
                 [
                     'type'     => 'flex',
-                    'altText'  => 'Best Anime',
+                    'altText'  => 'Anime Schedule',
                     'contents' => $data_carousel
                 ]
             ],
