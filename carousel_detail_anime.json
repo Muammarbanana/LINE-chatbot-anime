@@ -46,6 +46,13 @@
                 },
                 {
                   "type": "text",
+                  "text": "Episodes",
+                  "size": "xs",
+                  "align": "start",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
                   "text": "Source",
                   "size": "xs",
                   "align": "start",

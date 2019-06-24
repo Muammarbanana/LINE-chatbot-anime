@@ -57,6 +57,11 @@ function anime($text, $bot, $httpClient, $event, $input)
         } else {
             $score = $data_api['score'];
         }
+        if ($data_api['episodes'] == NULL){
+            $episodes = "?";
+        } else {
+            $episodes = $data_api['episodes']
+        }
         foreach ($data_api['genres'] as $key) {
             $genre .= ", " . $key['name'];
         }
@@ -105,14 +110,15 @@ function anime($text, $bot, $httpClient, $event, $input)
         }
         $data['contents'][0]['body']['contents'][0]['text'] = "Title: " . $title;
         $data['contents'][0]['body']['contents'][1]['text'] = "Type: " . $type;
-        $data['contents'][0]['body']['contents'][2]['text'] = "Source: " . $source;
-        $data['contents'][0]['body']['contents'][3]['text'] = "Status: " . $status;
-        $data['contents'][0]['body']['contents'][4]['text'] = "Premiered: " . $premiered;
-        $data['contents'][0]['body']['contents'][5]['text'] = "Aired: " . $aired;
-        $data['contents'][0]['body']['contents'][6]['text'] = "Duration: " . $duration;
-        $data['contents'][0]['body']['contents'][7]['text'] = "Genres: " . $genre;
-        $data['contents'][0]['body']['contents'][8]['text'] = "Rating: " . $rating;
-        $data['contents'][0]['body']['contents'][9]['text'] = "Score: " . $score;
+        $data['contents'][0]['body']['contents'][2]['text'] = "Episodes: " . $episodes;
+        $data['contents'][0]['body']['contents'][3]['text'] = "Source: " . $source;
+        $data['contents'][0]['body']['contents'][4]['text'] = "Status: " . $status;
+        $data['contents'][0]['body']['contents'][5]['text'] = "Premiered: " . $premiered;
+        $data['contents'][0]['body']['contents'][6]['text'] = "Aired: " . $aired;
+        $data['contents'][0]['body']['contents'][7]['text'] = "Duration: " . $duration;
+        $data['contents'][0]['body']['contents'][8]['text'] = "Genres: " . $genre;
+        $data['contents'][0]['body']['contents'][9]['text'] = "Rating: " . $rating;
+        $data['contents'][0]['body']['contents'][10]['text'] = "Score: " . $score;
         $data['contents'][1]['body']['contents'][0]['text'] = $sinopsis;
         $data['contents'][2]['body']['contents'][0]['text'] = $opening;
         $data['contents'][3]['body']['contents'][0]['text'] = $ending;
