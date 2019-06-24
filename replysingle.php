@@ -22,6 +22,8 @@ function replyone($input, $text, $httpClient, $bot, $event)
         $result = schedule($text, $bot, $httpClient, $event);
     } elseif (strpos($input, 'anime') !== false) {
         $result = anime($text, $bot, $httpClient, $event, $input);
+    } elseif ($event['source']['type'] == 'group' or $event['source']['type'] == 'room') {
+        
     } else {
         $result = $bot->replyText($event['replyToken'], "Please type 'Menu' to show all available keywords");
     }
