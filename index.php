@@ -83,6 +83,9 @@ $app->post('/webhook', function ($request, $response) use ($bot, $httpClient, $p
 
                     return $response->withJson($result->getJSONDecodedBody(), $result->getHTTPStatus());
                 }
+            } elseif ($event['type'] == 'join'){
+                $result = $bot->replyText($event['replyToken'], "Salken kak");
+                return $response->withJson($result->getJSONDecodedBody(), $result->getHTTPStatus());
             }
         }
     }
