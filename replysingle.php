@@ -60,7 +60,7 @@ function anime($text, $bot, $httpClient, $event, $input)
         if ($data_api['episodes'] == NULL){
             $episodes = "?";
         } else {
-            $episodes = $data_api['episodes']
+            $episodes = $data_api['episodes'];
         }
         foreach ($data_api['genres'] as $key) {
             $genre .= ", " . $key['name'];
