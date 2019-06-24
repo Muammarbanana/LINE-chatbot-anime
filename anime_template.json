@@ -48,7 +48,7 @@
             "type": "button",
             "action": {
               "type": "postback",
-              "label": "Detail",
+              "label": "Details",
               "displayText": "Anime:20",
               "data":"anime:20"
             },

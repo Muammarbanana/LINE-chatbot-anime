@@ -84,7 +84,7 @@ $app->post('/webhook', function ($request, $response) use ($bot, $httpClient, $p
                     return $response->withJson($result->getJSONDecodedBody(), $result->getHTTPStatus());
                 }
             } elseif ($event['type'] == 'join'){
-                $result = $bot->replyText($event['replyToken'], "Salken kak");
+                $result = $bot->replyText($event['replyToken'], "Hi, nice to meet you\nThis bot is for viewing and searching for information about the anime you like, please type 'Menu' to show all available keywords :)");
                 return $response->withJson($result->getJSONDecodedBody(), $result->getHTTPStatus());
             }
         }
