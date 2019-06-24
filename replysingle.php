@@ -232,7 +232,17 @@ function topanime($text, $bot, $httpClient, $event, $type)
             $id = $key['mal_id'];
             $judul = $key['title'];
             $gambar = $key['image_url'];
-            $konten = "Rank: " . $key['rank'] . "\nType: " . $key['type'] . "\nEpisodes: " . $key['episodes'] . "\nStart Date: " . $key['start_date'] . "\nEnd Date: " . $key['end_date'] . "\nScore: " . $key['score'];
+            if ($key['episodes'] == NULL){
+                $episot = "?";
+            } else {
+                $episot = $key['episodes'];
+            }
+            if ($key['end_date'] == NULL){
+                $end = "?";
+            } else {
+                $end = $key['end_date'];
+            }
+            $konten = "Rank: " . $key['rank'] . "\nType: " . $key['type'] . "\nEpisodes: " . $episot . "\nStart Date: " . $key['start_date'] . "\nEnd Date: " . $end . "\nScore: " . $key['score'];
             $data['footer']['contents'][0]['action']['displayText'] = "Anime:" . $id;
             $data['footer']['contents'][0]['action']['data'] = "Anime:" . $id;
             $data['header']['contents'][0]['text'] = $judul;
